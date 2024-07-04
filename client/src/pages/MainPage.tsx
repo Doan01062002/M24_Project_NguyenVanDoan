@@ -3,7 +3,7 @@ import "../assets/mainPage.css";
 
 export default function MainPage() {
   /**
-   *************Logic show Notifications**************
+   *************Logic show Notifications************
    */
   const [showNotifications, setShowNotifications] = useState(false);
 
