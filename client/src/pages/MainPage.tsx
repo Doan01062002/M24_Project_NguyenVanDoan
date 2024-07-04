@@ -12,7 +12,7 @@ export default function MainPage() {
   };
 
   /**
-   ************** Logic active nav class item**************
+   ************** Logic active nav class item*****
    */
   useEffect(() => {
     const menuItems =
