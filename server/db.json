@@ -1,0 +1,105 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "userName": "john",
+      "email": "john@gmail.com",
+      "name": "John Doe",
+      "avatar": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-17.jpg?alt=media&token=930dc33e-6354-4a23-bc7d-a85837f6ffde",
+      "banner": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-14.jpg?alt=media&token=7a3f5408-fa29-4121-8dfd-eb50b3b1132c",
+      "bio": "web developer and coffee enthusiast",
+      "status":true,
+      "password":"111",
+      "follows": [
+        {
+          "userId": 1,
+          "created_at": "2024-02-20T11:00:00Z"
+        }
+      ],
+      "friends": [
+        {
+          "userId": 1,
+          "add_at": "2024-02-20T11:00:00Z"
+        }
+      ],
+      "groups": [],
+      "created_at": "2024-02-20T11:00:00Z"
+    },
+    {
+      "userName": "vandoan",
+      "email": "vandoan01062002@gmail.com",
+      "name": "vandoan",
+      "avatar": "",
+      "banner": "",
+      "bio": "",
+      "follows": [],
+      "friends": [],
+      "groups": [],
+      "created_at": "3/7/2024 16:21:59",
+      "status":true,
+      "password":"111",
+      "id": 2
+    },
+    {
+      "userName": "vandoan01062002",
+      "email": "vandoan01062002@gmail.com",
+      "name": "Nguyễn Văn Đoan",
+      "avatar": "",
+      "banner": "",
+      "bio": "",
+      "follows": [],
+      "friends": [],
+      "groups": [],
+      "created_at": "3/7/2024 16:34:40",
+      "status":true,
+      "password":"111",
+      "id": 3
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "group_id": 1,
+      "content": "Just finished a great book on web development!",
+      "image": [
+        "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-19.jpg?alt=media&token=2b43e031-7839-4df3-9d4e-acb1132d5581"
+      ],
+      "reactions": [
+        {
+          "user_id": 1,
+          "type": "laugh",
+          "created_at": "2024-02-20T11:00:00Z"
+        }
+      ],
+      "created_at": "2024-02-20T11:00:00Z"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "post_id": 1,
+      "user_id": 1,
+      "image": "",
+      "content": "Sound interesting!",
+      "reactions": [],
+      "created_at": "2024-02-20T11:00:00Z"
+    }
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "groupName": "john_doe",
+      "group_picture": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-19.jpg?alt=media&token=2b43e031-7839-4df3-9d4e-acb1132d5581",
+      "banner": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-14.jpg?alt=media&token=7a3f5408-fa29-4121-8dfd-eb50b3b1132c",
+      "bio": "web developer and coffee enthusiast",
+      "members": [
+        {
+          "userId": 1,
+          "join_at": "2024-02-20T11:00:00Z"
+        }
+      ],
+      "created_at": "2024-02-20T11:00:00Z"
+    }
+  ]
+}
