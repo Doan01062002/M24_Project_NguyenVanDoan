@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../assets/myIndividual.css";
+import { useNavigate } from "react-router-dom";
+import { setCheckUser } from "../util";
 
 export default function MyIndividual() {
   /**
@@ -77,6 +79,15 @@ export default function MyIndividual() {
     }
   };
 
+  /**
+   ******************** Logic đăng xuất ******************
+   */
+  const navigate = useNavigate();
+  const logoutUser = () => {
+    setCheckUser();
+    navigate("/login");
+  };
+
   return (
     <>
       <nav>
@@ -90,7 +101,6 @@ export default function MyIndividual() {
             />
           </div>
           <div className="create">
-            <button className="btn btn-primary">Create</button>
             <div className="profile-photo">
               <img
                 src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-1.jpg?alt=media&token=2539162a-adf0-4333-9fea-f3dd9feb5103"
@@ -233,11 +243,11 @@ export default function MyIndividual() {
                 </span>
                 <h3>Theme</h3>
               </a>
-              <a className="menu-item">
+              <a onClick={logoutUser} className="menu-item">
                 <span>
-                  <i className="uil uil-setting" />
+                  <i className="uil uil-sign-out-alt"></i>
                 </span>
-                <h3>Setting</h3>
+                <h3>Log out</h3>
               </a>
             </div>
             {/*--------------- END OF SIDEBAR ------------------*/}
@@ -247,11 +257,69 @@ export default function MyIndividual() {
           </div>
           {/*--------------- MIDDLE ------------------*/}
           <div className="middle">
-            <div className="nav-profile photo">
+            <div className="nav-profile feed">
               <img
                 src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Ffeed-5.jpg?alt=media&token=c5823e1a-d46f-4e45-81eb-a99a05cf1714"
                 alt=""
               />
+              <div className="nav-info">
+                <div className="nav-head-info">
+                  <img
+                    className="profile-photo-info"
+                    src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Ffeed-5.jpg?alt=media&token=c5823e1a-d46f-4e45-81eb-a99a05cf1714"
+                    alt=""
+                  />
+                  <div className="nav-info-name">
+                    <h5>Jonh Hana</h5>
+                    <h6>500 friends</h6>
+                    <div className="liked-by">
+                      <span>
+                        <img src="./images/profile-10.jpg" />
+                      </span>
+                      <span>
+                        <img src="./images/profile-4.jpg" />
+                      </span>
+                      <span>
+                        <img src="./images/profile-15.jpg" />
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className="nav-action-infor">
+                  <button className="btn-edit-info">
+                    <span className="material-symbols-outlined">edit</span>
+                    Edit information
+                  </button>
+                </div>
+              </div>
+              <hr />
+              <ul className="nav justify-content-center">
+                <li className="nav-item">
+                  <a className="nav-link active" aria-current="page" href="#">
+                    Posts
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    Introduce
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    Friends
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    Images
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    Video
+                  </a>
+                </li>
+              </ul>
             </div>
             <form action="" className="create-post">
               <div className="profile-photo">

@@ -280,7 +280,57 @@ main .container .left .profile {
 }
 
 /* =============== Middle ============== */
+.middle .nav-profile{
+    display: flex;
+    flex-direction: column;
+    background: var(--color-white);
+    border-radius: var(--border-radius);
+}
 
+.middle .nav-profile .nav-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.middle .nav-profile .nav-head-info{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.middle .nav-profile .profile-photo-info{
+    margin-top: 5px;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+
+.middle .nav-head-info .nav-head-info .nav-info-name{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.middle .nav-info .nav-action-infor{
+    display: flex;
+    flex-direction: column;
+}
+
+.middle .nav-info .nav-action-infor .btn-edit-info{
+    margin-top: 30px;
+    width: 150px;
+    height: 30px;
+    background-color: #cac2c2;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.middle .nav .nav-item :hover{
+    border-bottom: 2px solid #65676b;
+}
 
 /* =============== Create Post ============== */
 .middle .create-post {

@@ -8,8 +8,8 @@
       "avatar": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-17.jpg?alt=media&token=930dc33e-6354-4a23-bc7d-a85837f6ffde",
       "banner": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-14.jpg?alt=media&token=7a3f5408-fa29-4121-8dfd-eb50b3b1132c",
       "bio": "web developer and coffee enthusiast",
-      "status":true,
-      "password":"111",
+      "status": true,
+      "password": "111",
       "follows": [
         {
           "userId": 1,
@@ -36,8 +36,8 @@
       "friends": [],
       "groups": [],
       "created_at": "3/7/2024 16:21:59",
-      "status":true,
-      "password":"111",
+      "status": true,
+      "password": "111",
       "id": 2
     },
     {
@@ -51,9 +51,24 @@
       "friends": [],
       "groups": [],
       "created_at": "3/7/2024 16:34:40",
-      "status":true,
-      "password":"111",
+      "status": true,
+      "password": "111",
       "id": 3
+    },
+    {
+      "userName": "tian",
+      "email": "tienbright@gmail.com",
+      "name": "tien",
+      "password": "111",
+      "avatar": "",
+      "banner": "",
+      "bio": "",
+      "follows": [],
+      "friends": [],
+      "groups": [],
+      "created_at": "5/7/2024 09:51:23",
+      "status": true,
+      "id": 4
     }
   ],
   "posts": [

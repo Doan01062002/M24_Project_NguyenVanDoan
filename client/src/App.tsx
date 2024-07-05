@@ -2,7 +2,7 @@ import React from "react";
 import Dashboard from "./pages/admin/Dashboard";
 import MainPage from "./pages/MainPage";
 import Login_Register from "./auth/Login_Register";
-import { Route, Router, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import MyIndividual from "./pages/MyIndividual";
 
 export default function App() {

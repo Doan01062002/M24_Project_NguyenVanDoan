@@ -3,7 +3,7 @@ import { User } from "../interfaces/page";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, renderUser } from "../services/account.service";
 import "../assets/login_Register.css";
-import { useNavigate } from "react-router-dom";
+import { json, useNavigate } from "react-router-dom";
 
 export default function Login_Register() {
   // logic next web
@@ -93,9 +93,9 @@ export default function Login_Register() {
       alert("Invalid email address.");
     } else if (valuePassword !== valueComfirmPassword) {
       alert("Passwords do not match.");
-    } else if (checkUsername !== -1) {
+    } else if (checkUsername) {
       alert("Username already exists.");
-    } else if (checkEmailRegister !== -1) {
+    } else if (checkEmailRegister) {
       alert("Email is already registered.");
     } else {
       const newUser = {
@@ -163,7 +163,8 @@ export default function Login_Register() {
       console.log("Login successful");
       setValueUsernameLogin("");
       setValuePasswordLogin("");
-      navigate("/home");
+      localStorage.setItem("checkUser", JSON.stringify(checkUsername));
+      navigate("/");
     }
   };
   return (

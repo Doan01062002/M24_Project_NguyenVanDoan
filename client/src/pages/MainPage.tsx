@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../assets/mainPage.css";
+import { useNavigate } from "react-router-dom";
+import { setCheckUser } from "../util";
 
 export default function MainPage() {
   /**
@@ -77,6 +79,15 @@ export default function MainPage() {
     }
   };
 
+  /**
+   ******************** Logic đăng xuất ******************
+   */
+  const navigate = useNavigate();
+  const logoutUser = () => {
+    setCheckUser();
+    navigate("/login");
+  };
+
   return (
     <>
       <nav>
@@ -90,7 +101,6 @@ export default function MainPage() {
             />
           </div>
           <div className="create">
-            <button className="btn btn-primary">Create</button>
             <div className="profile-photo">
               <img
                 src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-1.jpg?alt=media&token=2539162a-adf0-4333-9fea-f3dd9feb5103"
@@ -233,11 +243,11 @@ export default function MainPage() {
                 </span>
                 <h3>Theme</h3>
               </a>
-              <a className="menu-item">
+              <a onClick={logoutUser} className="menu-item">
                 <span>
-                  <i className="uil uil-setting" />
+                  <i className="uil uil-sign-out-alt"></i>
                 </span>
-                <h3>Setting</h3>
+                <h3>Log out</h3>
               </a>
             </div>
             {/*--------------- END OF SIDEBAR ------------------*/}
