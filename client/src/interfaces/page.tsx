@@ -38,6 +38,8 @@ export interface Post {
   image: string[];
   reactions: Reaction[];
   created_at: string;
+  status: true;
+  action: string;
 }
 
 export interface Reaction {

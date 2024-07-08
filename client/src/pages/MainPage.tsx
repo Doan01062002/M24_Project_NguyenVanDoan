@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import "../assets/mainPage.css";
 import { useNavigate } from "react-router-dom";
 import { setCheckUser } from "../util";
+import UploadImage from "../components/UploadImage";
+import Feeds from "../components/Feeds";
 
 export default function MainPage() {
   /**
@@ -53,31 +55,6 @@ export default function MainPage() {
       });
     };
   }, []);
-
-  /**
-   ************Logic Message show*************
-   */
-  const messageNotificationRef = useRef<HTMLDivElement>(null);
-  const messagesRef = useRef<HTMLDivElement>(null);
-  const messageSearchRef = useRef<HTMLInputElement>(null);
-
-  const messages = messagesRef.current;
-  const messageNotification = messageNotificationRef.current;
-
-  const handleMessagesClick = () => {
-    if (messages) {
-      messages.style.boxShadow = "0 0 1rem var(--color-primary)";
-      if (messageNotification) {
-        const notificationCount = messageNotification.querySelector(
-          ".notification-count"
-        ) as HTMLElement;
-        if (notificationCount) notificationCount.style.display = "none";
-      }
-      setTimeout(() => {
-        if (messages) messages.style.boxShadow = "none";
-      }, 2000);
-    }
-  };
 
   /**
    ******************** Logic đăng xuất ******************
@@ -213,18 +190,7 @@ export default function MainPage() {
                 )}
                 {/*------------- END NOTIFICATION POPUP -------------*/}
               </a>
-              <a
-                className="menu-item"
-                id="messages-notifications"
-                onClick={handleMessagesClick}
-              >
-                <span>
-                  <i className="uil uil-envelope-alt">
-                    <small className="notification-count">6</small>
-                  </i>
-                </span>
-                <h3>Messages</h3>
-              </a>
+
               <a className="menu-item">
                 <span>
                   <i className="uil uil-bookmark" />
@@ -251,9 +217,6 @@ export default function MainPage() {
               </a>
             </div>
             {/*--------------- END OF SIDEBAR ------------------*/}
-            <label className="btn btn-primary" htmlFor="create-post">
-              Create Post
-            </label>
           </div>
           {/*--------------- MIDDLE ------------------*/}
           <div className="middle">
@@ -297,481 +260,18 @@ export default function MainPage() {
               </div>
             </div>
             {/*--------------- END OF STORIES ------------------*/}
-            <form action="" className="create-post">
-              <div className="profile-photo">
-                <img src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-1.jpg?alt=media&token=2539162a-adf0-4333-9fea-f3dd9feb5103" />
-              </div>
-              <div className="information-post">
-                <input
-                  type="text"
-                  placeholder="What's on your mind?"
-                  id="create-post"
-                />
-                <div className="icons-function">
-                  <span className="material-symbols-outlined">
-                    add_photo_alternate
-                  </span>
-                  <span className="material-symbols-outlined">video_call</span>
-                  <span className="material-symbols-outlined">folder</span>
-                  <span className="material-symbols-outlined">group_add</span>
-                  <span className="material-symbols-outlined">
-                    add_reaction
-                  </span>
-                </div>
-              </div>
-
-              <button className="btn btn-primary">Post</button>
-            </form>
-            {/*--------------- FEEDS ------------------*/}
-            <div className="feeds">
-              {/*--------------- FEED 1 ------------------*/}
-              <div className="feed">
-                <div className="head">
-                  <div className="user">
-                    <div className="profile-photo">
-                      <img src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-13.jpg?alt=media&token=ed27a7c7-abad-44d7-a008-1fa03306f85d" />
-                    </div>
-                    <div className="info">
-                      <h3>Lana Rose</h3>
-                      <small>Dubai, 15 Minutes Ago</small>
-                    </div>
-                  </div>
-                  <span className="edit">
-                    <i className="uil uil-ellipsis-h" />
-                  </span>
-                </div>
-                <div className="photo">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Ffeed-1.jpg?alt=media&token=d3802fba-44c8-47f0-8628-a88e94d8e023" />
-                </div>
-                <div className="action-buttons">
-                  <div className="interaction-buttons">
-                    <span>
-                      <i className="uil uil-heart" />
-                    </span>
-                    <span>
-                      <i className="uil uil-comment-dots" />
-                    </span>
-                    <span>
-                      <i className="uil uil-share-alt" />
-                    </span>
-                  </div>
-                  <div className="bookmark">
-                    <span>
-                      <i className="uil uil-bookmark-full" />
-                    </span>
-                  </div>
-                </div>
-                <div className="liked-by">
-                  <span>
-                    <img src="./images/profile-10.jpg" />
-                  </span>
-                  <span>
-                    <img src="./images/profile-4.jpg" />
-                  </span>
-                  <span>
-                    <img src="./images/profile-15.jpg" />
-                  </span>
-                  <p>
-                    Liked by <b>Ernest Achiever</b> and <b>2, 323 others</b>
-                  </p>
-                </div>
-                <div className="caption">
-                  <p>
-                    <b>Lana Rose</b> Lorem ipsum dolor sit quisquam eius.
-                    <span className="harsh-tag">#lifestyle</span>
-                  </p>
-                </div>
-                <div className="comments text-muted">View all 277 comments</div>
-              </div>
-              {/*--------------- END OF FEED 1 ------------------*/}
-              {/*--------------- FEED 2 ------------------*/}
-              <div className="feed">
-                <div className="head">
-                  <div className="user">
-                    <div className="profile-photo">
-                      <img src="./images/profile-10.jpg" />
-                    </div>
-                    <div className="info">
-                      <h3>Clara Dwayne</h3>
-                      <small>Miami, 2 Hours Ago</small>
-                    </div>
-                  </div>
-                  <span className="edit">
-                    <i className="uil uil-ellipsis-h" />
-                  </span>
-                </div>
-                <div className="photo">
-                  <img src="./images/feed-3.jpg" />
-                </div>
-                <div className="action-buttons">
-                  <div className="interaction-buttons">
-                    <span>
-                      <i className="uil uil-heart" />
-                    </span>
-                    <span>
-                      <i className="uil uil-comment-dots" />
-                    </span>
-                    <span>
-                      <i className="uil uil-share-alt" />
-                    </span>
-                  </div>
-                  <div className="bookmark">
-                    <span>
-                      <i className="uil uil-bookmark-full" />
-                    </span>
-                  </div>
-                </div>
-                <div className="liked-by">
-                  <span>
-                    <img src="./images/profile-11.jpg" />
-                  </span>
-                  <span>
-                    <img src="./images/profile-5.jpg" />
-                  </span>
-                  <span>
-                    <img src="./images/profile-16.jpg" />
-                  </span>
-                  <p>
-                    Liked by <b>Diana Rose</b> and <b>2, 323 others</b>
-                  </p>
-                </div>
-                <div className="caption">
-                  <p>
-                    <b>Clara Dwayne</b> Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Veniam, fugiat? Ipsam voluptatibus beatae
-                    facere eos harum voluptas distinctio, officia, facilis sed
-                    quisquam esse, assumenda minima ut. Excepturi sit quis
-                    reiciendis!
-                    <span className="harsh-tag">#lifestyle</span>
-                  </p>
-                </div>
-                <div className="comments text-muted">View all 100 comments</div>
-              </div>
-              {/*--------------- END OF FEED 2 ------------------*/}
-              {/*--------------- FEED 3 ------------------*/}
-              <div className="feed">
-                <div className="head">
-                  <div className="user">
-                    <div className="profile-photo">
-                      <img src="./images/profile-4.jpg" />
-                    </div>
-                    <div className="info">
-                      <h3>Rosalinda Clark</h3>
-                      <small>New York, 50 Minutes Ago</small>
-                    </div>
-                  </div>
-                  <span className="edit">
-                    <i className="uil uil-ellipsis-h" />
-                  </span>
-                </div>
-                <div className="photo">
-                  <img src="./images/feed-4.jpg" />
-                </div>
-                <div className="action-buttons">
-                  <div className="interaction-buttons">
-                    <span>
-                      <i className="uil uil-heart" />
-                    </span>
-                    <span>
-                      <i className="uil uil-comment-dots" />
-                    </span>
-                    <span>
-                      <i className="uil uil-share-alt" />
-                    </span>
-                  </div>
-                  <div className="bookmark">
-                    <span>
-                      <i className="uil uil-bookmark-full" />
-                    </span>
-                  </div>
-                </div>
-                <div className="liked-by">
-                  <span>
-                    <img src="./images/profile-12.jpg" />
-                  </span>
-                  <span>
-                    <img src="./images/profile-13.jpg" />
-                  </span>
-                  <span>
-                    <img src="./images/profile-14.jpg" />
-                  </span>
-                  <p>
-                    Liked by <b>Clara Dwayne</b> and <b>2, 323 others</b>
-                  </p>
-                </div>
-                <div className="caption">
-                  <p>
-                    <b>Rosalinda Clark</b> Lorem ipsum dolor sit, amet
-                    consectetur adipisicing elit. Quo ullam, quam voluptatibus
-                    natus ex corporis ea atque quisquam, necessitatibus, cumque
-                    eligendi aliquam nulla soluta hic. Obcaecati, tempore
-                    dignissimos! Esse cupiditate laborum ullam, quae
-                    necessitatibus, officiis, quaerat aspernatur illo voluptatum
-                    repellat perferendis voluptatem similique. Assumenda
-                    nostrum, eius sit laborum nesciunt deserunt!
-                    <span className="harsh-tag">#lifestyle</span>
-                  </p>
-                </div>
-                <div className="comments text-muted">View all 50 comments</div>
-              </div>
-              {/*--------------- END OF FEED 3 ------------------*/}
-              {/*--------------- FEED 4 ------------------*/}
-              <div className="feed">
-                <div className="head">
-                  <div className="user">
-                    <div className="profile-photo">
-                      <img src="./images/profile-5.jpg" />
-                    </div>
-                    <div className="info">
-                      <h3>Alexandria Riana</h3>
-                      <small>Dubai, 1 Hour Ago</small>
-                    </div>
-                  </div>
-                  <span className="edit">
-                    <i className="uil uil-ellipsis-h" />
-                  </span>
-                </div>
-                <div className="photo">
-                  <img src="./images/feed-5.jpg" />
-                </div>
-                <div className="action-buttons">
-                  <div className="interaction-buttons">
-                    <span>
-                      <i className="uil uil-heart" />
-                    </span>
-                    <span>
-                      <i className="uil uil-comment-dots" />
-                    </span>
-                    <span>
-                      <i className="uil uil-share-alt" />
-                    </span>
-                  </div>
-                  <div className="bookmark">
-                    <span>
-                      <i className="uil uil-bookmark-full" />
-                    </span>
-                  </div>
-                </div>
-                <div className="liked-by">
-                  <span>
-                    <img src="./images/profile-10.jpg" />
-                  </span>
-                  <span>
-                    <img src="./images/profile-4.jpg" />
-                  </span>
-                  <span>
-                    <img src="./images/profile-15.jpg" />
-                  </span>
-                  <p>
-                    Liked by <b>Lana Rose</b> and <b>5, 323 others</b>
-                  </p>
-                </div>
-                <div className="caption">
-                  <p>
-                    <b>Alexandria Riana</b> Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. Modi architecto sunt itaque,
-                    in, enim non doloremque velit unde nihil vitae impedit
-                    dolorum, distinctio ab deleniti!
-                    <span className="harsh-tag">#lifestyle</span>
-                  </p>
-                </div>
-                <div className="comments text-muted">View all 540 comments</div>
-              </div>
-              {/*--------------- END OF FEED 4 ------------------*/}
-              {/*--------------- FEED 5 ------------------*/}
-              <div className="feed">
-                <div className="head">
-                  <div className="user">
-                    <div className="profile-photo">
-                      <img src="./images/profile-7.jpg" />
-                    </div>
-                    <div className="info">
-                      <h3>Keylie Hadid</h3>
-                      <small>Dubai, 3 Hours Ago</small>
-                    </div>
-                  </div>
-                  <span className="edit">
-                    <i className="uil uil-ellipsis-h" />
-                  </span>
-                </div>
-                <div className="photo">
-                  <img src="./images/feed-7.jpg" />
-                </div>
-                <div className="action-buttons">
-                  <div className="interaction-buttons">
-                    <span>
-                      <i className="uil uil-heart" />
-                    </span>
-                    <span>
-                      <i className="uil uil-comment-dots" />
-                    </span>
-                    <span>
-                      <i className="uil uil-share-alt" />
-                    </span>
-                  </div>
-                  <div className="bookmark">
-                    <span>
-                      <i className="uil uil-bookmark-full" />
-                    </span>
-                  </div>
-                </div>
-                <div className="liked-by">
-                  <span>
-                    <img src="./images/profile-10.jpg" />
-                  </span>
-                  <span>
-                    <img src="./images/profile-4.jpg" />
-                  </span>
-                  <span>
-                    <img src="./images/profile-15.jpg" />
-                  </span>
-                  <p>
-                    Liked by <b>Riana Rose</b> and <b>1, 226 others</b>
-                  </p>
-                </div>
-                <div className="caption">
-                  <p>
-                    <b>Keylie Hadid</b> Lorem ipsum dolor, sit amet consectetur
-                    adipisicing elit. Autem obcaecati nisi veritatis quisquam
-                    eius accusantium rem quo repellat facilis neque.
-                    <span className="harsh-tag">#lifestyle</span>
-                  </p>
-                </div>
-                <div className="comments text-muted">View all 199 comments</div>
-              </div>
-              {/*--------------- END OF FEED 5 ------------------*/}
-              {/*--------------- FEED 6 ------------------*/}
-              <div className="feed">
-                <div className="head">
-                  <div className="user">
-                    <div className="profile-photo">
-                      <img src="./images/profile-15.jpg" />
-                    </div>
-                    <div className="info">
-                      <h3>Benjamin Dwayne</h3>
-                      <small>New York, 5 Hours Ago</small>
-                    </div>
-                  </div>
-                  <span className="edit">
-                    <i className="uil uil-ellipsis-h" />
-                  </span>
-                </div>
-                <div className="photo">
-                  <img src="./images/feed-2.jpg" />
-                </div>
-                <div className="action-buttons">
-                  <div className="interaction-buttons">
-                    <span>
-                      <i className="uil uil-heart" />
-                    </span>
-                    <span>
-                      <i className="uil uil-comment-dots" />
-                    </span>
-                    <span>
-                      <i className="uil uil-share-alt" />
-                    </span>
-                  </div>
-                  <div className="bookmark">
-                    <span>
-                      <i className="uil uil-bookmark-full" />
-                    </span>
-                  </div>
-                </div>
-                <div className="liked-by">
-                  <span>
-                    <img src="./images/profile-10.jpg" />
-                  </span>
-                  <span>
-                    <img src="./images/profile-4.jpg" />
-                  </span>
-                  <span>
-                    <img src="./images/profile-15.jpg" />
-                  </span>
-                  <p>
-                    Liked by <b>Ernest Achiever</b> and <b>2, 323 others</b>
-                  </p>
-                </div>
-                <div className="caption">
-                  <p>
-                    <b>Benjamin Dwayne</b> Lorem, ipsum dolor sit amet
-                    consectetur adipisicing elit. Nostrum, consequuntur!
-                    <span className="harsh-tag">#lifestyle</span>
-                  </p>
-                </div>
-                <div className="comments text-muted">View all 277 comments</div>
-              </div>
-              {/*--------------- END OF FEED 6 ------------------*/}
-              {/*--------------- FEED 7 ------------------*/}
-              <div className="feed">
-                <div className="head">
-                  <div className="user">
-                    <div className="profile-photo">
-                      <img src="./images/profile-3.jpg" />
-                    </div>
-                    <div className="info">
-                      <h3>Indiana Ellison</h3>
-                      <small>Qatar, 8 Hours Ago</small>
-                    </div>
-                  </div>
-                  <span className="edit">
-                    <i className="uil uil-ellipsis-h" />
-                  </span>
-                </div>
-                <div className="photo">
-                  <img src="./images/feed-6.jpg" />
-                </div>
-                <div className="action-buttons">
-                  <div className="interaction-buttons">
-                    <span>
-                      <i className="uil uil-heart" />
-                    </span>
-                    <span>
-                      <i className="uil uil-comment-dots" />
-                    </span>
-                    <span>
-                      <i className="uil uil-share-alt" />
-                    </span>
-                  </div>
-                  <div className="bookmark">
-                    <span>
-                      <i className="uil uil-bookmark-full" />
-                    </span>
-                  </div>
-                </div>
-                <div className="liked-by">
-                  <span>
-                    <img src="./images/profile-10.jpg" />
-                  </span>
-                  <span>
-                    <img src="./images/profile-4.jpg" />
-                  </span>
-                  <span>
-                    <img src="./images/profile-15.jpg" />
-                  </span>
-                  <p>
-                    Liked by <b>Benjamin Dwayne</b> and <b>2, 323 others</b>
-                  </p>
-                </div>
-                <div className="caption">
-                  <p>
-                    <b>Indiana Ellison</b> Lorem ipsum, dolor sit amet
-                    consectetur adipisicing elit. Consequuntur itaque quasi
-                    autem pariatur ducimus eligendi, qui odio molestias at
-                    molestiae.
-                    <span className="harsh-tag">#lifestyle</span>
-                  </p>
-                </div>
-                <div className="comments text-muted">View all 277 comments</div>
-              </div>
-              {/*--------------- END OF FEED 7 ------------------*/}
+            <div className="create-post">
+              <UploadImage></UploadImage>
             </div>
+            {/*--------------- FEEDS ------------------*/}
+            <Feeds></Feeds>
             {/*--------------- END OF FEEDS ------------------*/}
           </div>
           {/*--------------- END OF MIDDLE ------------------*/}
           {/*--------------- RIGHT ------------------*/}
           <div className="right">
             {/*----- MESSAGES -----*/}
-            <div className="messages" ref={messagesRef}>
+            <div className="messages">
               <div className="heading">
                 <h4>Messages</h4>
                 <i className="uil uil-edit" />
@@ -783,7 +283,6 @@ export default function MainPage() {
                   type="search"
                   placeholder="Search messages"
                   id="message-search"
-                  ref={messageSearchRef}
                 />
               </div>
               {/*----- MESSAGES CATEGORY -----*/}

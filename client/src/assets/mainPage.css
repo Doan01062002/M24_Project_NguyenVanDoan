@@ -392,6 +392,42 @@ main .container .left .profile {
 .middle .create-post .icons-function span{
     cursor: pointer;
 }
+
+.middle .create-post .image-post{
+    width: 300px;
+    height: 30px;
+}
+
+.middle .create-post .information-post-right{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: space-between;
+}
+
+.preview-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .image-preview-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .remove-image-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 2px 6px;
+  }
+  
 /* =============== Feeds ============== */
 .middle .feeds .feed {
     background: var(--color-white);
@@ -806,7 +842,7 @@ MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
 
 /* **************** Show article detail ****************** */
 
-.overlay {
+.overlay-detail {
     position: fixed;
     top: 0;
     right: 0;
@@ -815,9 +851,10 @@ MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
+    z-index: 100;
 }
 
-.overlay .modal-custom {
+.overlay-detail .modal-custom {
     background-color: #fff;
     padding: 20px 24px;
     margin-top: 100px;
@@ -829,7 +866,7 @@ MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
     position: relative;
 }
 
-.overlay .close-button {
+.overlay-detail .close-button {
     position: absolute;
     top: 3px;
     right: 3px;
@@ -841,49 +878,49 @@ MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
     transition: color 0.3s ease;
 }
 
-.overlay .close-button:hover {
+.overlay-detail .close-button:hover {
     color: #ff0000;
 }
 
-.overlay .modal-custom .carousel {
+.overlay-detail .modal-custom .carousel {
     width: 500px;
     height: 350px;
 }
 
-.overlay .modal-custom .carousel img {
+.overlay-detail .modal-custom .carousel img {
     width: 500px;
     height: 350px;
 }
 
-.overlay .modal-custom .modal-custom-right {
+.overlay-detail .modal-custom .modal-custom-right {
     width: 500px;
 }
 
-.overlay .feed .action-buttons {
+.overlay-detail .feed .action-buttons {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     font-size: 25px;
 }
 
-.overlay .modal-custom .modal-custom-right {
+.overlay-detail .modal-custom .modal-custom-right {
     display: flex;
     flex-direction: column;
 }
 
-.overlay .modal-custom .modal-custom-right .article-owner {
+.overlay-detail .modal-custom .modal-custom-right .article-owner {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.overlay .modal-custom .modal-custom-right .article-owner h6 {
+.overlay-detail .modal-custom .modal-custom-right .article-owner h6 {
     margin-top: 7px;
     font-weight: 600;
     color: blue;
 }
 
-.overlay .modal-custom .modal-custom-right .article-owner b {
+.overlay-detail .modal-custom .modal-custom-right .article-owner b {
     margin-top: 7px;
 }
 
@@ -893,101 +930,101 @@ MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
     gap: 10px;
 }
 
-.overlay .modal-custom .modal-custom-right .btn-outline-primary {
+.overlay-detail .modal-custom .modal-custom-right .btn-outline-primary {
     width: 100px;
     height: 25px;
     margin: 0;
     padding: 0;
 }
 
-.overlay .modal-custom .modal-custom-right .post-comment {
+.overlay-detail .modal-custom .modal-custom-right .post-comment {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.overlay .modal-custom .modal-custom-right .post-comment input {
+.overlay-detail .modal-custom .modal-custom-right .post-comment input {
     width: 350px;
     height: 30px;
     margin: 0;
     padding: 0;
 }
 
-.overlay .modal-custom .modal-custom-right .post-comment .material-symbols-outlined {
+.overlay-detail .modal-custom .modal-custom-right .post-comment .material-symbols-outlined {
     width: 30px;
     margin: 0;
     padding: 0;
 }
 
-.overlay .modal-custom .modal-custom-right .profile-photo {
+.overlay-detail .modal-custom .modal-custom-right .profile-photo {
     width: 30px;
     height: 30px;
 }
 
-.overlay .modal-custom .modal-custom-right .article-comment {
+.overlay-detail .modal-custom .modal-custom-right .article-comment {
     height:  335px;
     overflow-y: auto;
 }
 
 /* ***************comment ********************/
-.overlay .modal-custom .comment-container {
+.overlay-detail .modal-custom .comment-container {
     display: flex;
     align-items: flex-start;
     margin: 10px 0;
     padding: 10px;
   }
   
-  .overlay .modal-custom  .comment-avatar {
+  .overlay-detail .modal-custom  .comment-avatar {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     margin-right: 10px;
   }
   
-  .overlay .modal-custom  .comment-content {
+  .overlay-detail .modal-custom  .comment-content {
     max-width: 80%;
   }
   
-  .overlay .modal-custom  .comment-username {
+  .overlay-detail .modal-custom  .comment-username {
     font-weight: bold;
     margin-bottom: 5px;
     color: #385898;
   }
   
-  .overlay .modal-custom  .comment-time {
+  .overlay-detail .modal-custom  .comment-time {
     font-size: 12px;
     color: #65676b;
     margin-left: 5px;
   }
   
-  .overlay .modal-custom  .comment-text {
+  .overlay-detail .modal-custom  .comment-text {
     margin: 5px 0;
     line-height: 1.5;
   }
   
-  .overlay .modal-custom  .comment-actions {
+  .overlay-detail .modal-custom  .comment-actions {
     display: flex;
     align-items: center;
     margin-top: 5px;
     gap: 20px;
   }
   
-  .overlay .modal-custom  .comment-actions span {
+  .overlay-detail .modal-custom  .comment-actions span {
     font-size: 12px;
     color: #65676b;
     cursor: pointer;
     margin-right: 10px;
   }
   
-  .overlay .modal-custom  .comment-actions span:hover {
+  .overlay-detail .modal-custom  .comment-actions span:hover {
     text-decoration: underline;
   }
   
-  .overlay .modal-custom  .comment-reply {
+  .overlay-detail .modal-custom  .comment-reply {
     margin-left: 50px;
   }
   
-  .overlay .modal-custom  .comment-container.long-comment {
+  .overlay-detail .modal-custom  .comment-container.long-comment {
     max-height: 150px;
     overflow-y: auto;
   }
