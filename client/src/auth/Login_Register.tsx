@@ -3,7 +3,7 @@ import { User } from "../interfaces/page";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, renderUser } from "../services/account.service";
 import "../assets/login_Register.css";
-import { json, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Login_Register() {
   // logic next web
