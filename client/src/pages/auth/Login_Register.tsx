@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { User } from "../interfaces/page";
+import { User } from "../../interfaces/page";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser, renderUser } from "../services/account.service";
-import "../assets/login_Register.css";
+import { addUser, renderUser } from "../../services/account.service";
+import "../../assets/login_Register.css";
 import { useNavigate } from "react-router-dom";
 
 export default function Login_Register() {
@@ -28,8 +28,6 @@ export default function Login_Register() {
   const users = useSelector((state: any) => {
     return state.users.accountUser;
   });
-
-  console.log(users);
 
   const dispatch = useDispatch();
 
@@ -106,6 +104,11 @@ export default function Login_Register() {
         avatar: "",
         banner: "",
         bio: "",
+        city: "city",
+        work: "work",
+        study: "study",
+        hometown: "hometown",
+        relationship: "relationship",
         follows: [],
         friends: [],
         groups: [],

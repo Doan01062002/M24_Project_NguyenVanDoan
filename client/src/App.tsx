@@ -1,7 +1,7 @@
 import React from "react";
 import Dashboard from "./pages/admin/Dashboard";
 import MainPage from "./pages/MainPage";
-import Login_Register from "./auth/Login_Register";
+import Login_Register from "./pages/auth/Login_Register";
 import { Route, Routes } from "react-router-dom";
 import MyIndividual from "./pages/MyIndividual";
 

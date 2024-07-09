@@ -8,15 +8,20 @@ export interface User {
   userName: string;
   email: string;
   name: string;
-  password: string;
   avatar: string;
   banner: string;
   bio: string;
-  follows: Follow[];
-  friends: Friend[];
-  groups: Group[];
+  password: string;
+  city: string;
+  work: string;
+  study: string;
+  hometown: string;
+  relationship: string;
+  follows: any[];
+  friends: any[];
+  groups: any[];
   created_at: string;
-  status: true;
+  status: boolean;
 }
 
 export interface Follow {
@@ -26,6 +31,8 @@ export interface Follow {
 
 export interface Friend {
   userId: number;
+  nameFriend: string;
+  imageFriend: string;
   add_at: string;
 }
 
@@ -81,4 +88,14 @@ export interface Root {
   posts: Post[];
   comments: Comment[];
   groups: Group[];
+}
+
+//Upload State
+
+export interface UploadState {
+  images: File[];
+  name: string;
+  previews: string[];
+  selectedValue: string;
+  showUploadFile: boolean;
 }

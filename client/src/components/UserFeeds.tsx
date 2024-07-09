@@ -2,14 +2,18 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { renderPost } from "../services/posts.service";
 import { Post } from "../interfaces/page";
+import { getCheckUser } from "../util";
 
-export default function Feeds() {
+export default function UserFeeds() {
   /**
    * ************ Render Posts****************
    */
-
+  //   get Post
   const reversedPosts = useSelector((state: any) => state.post.post || []);
-  const posts = [...reversedPosts].reverse();
+  const filterPostUser = reversedPosts.filter(
+    (item: Post) => item.user_id === getCheckUser.id
+  );
+  const posts = [...filterPostUser].reverse();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,14 +21,14 @@ export default function Feeds() {
   }, [dispatch]);
 
   /**
-   * Hiển thị Detail
+   * Show Detail
    */
 
   const [showDetail, setShowDetail] = useState<boolean>(false);
   const [getIdItemFeed, setGetIdItemFeed] = useState<number>(0);
   const [getPost, setGetPost] = useState<any>({
     id: 0,
-    user_id: 0,
+    user_id: getCheckUser.id,
     group_id: 0,
     content: "",
     image: [],

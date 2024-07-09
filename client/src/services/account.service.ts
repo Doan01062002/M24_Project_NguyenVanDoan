@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { User } from "../interfaces/page";
 
 // Render user
 export const renderUser:any = createAsyncThunk("users/renderUser",
@@ -16,3 +17,12 @@ export const addUser:any = createAsyncThunk("users/addUser",
         return response.data
     }
 )
+
+// Update user
+export const updateUser:any = createAsyncThunk(
+    "users/updateUser",
+    async ({ id, user }: { id: number; user: User }) => {
+      const response = await axios.patch(`http://localhost:3000/users/${id}`, user);
+      return response.data;
+    }
+  );

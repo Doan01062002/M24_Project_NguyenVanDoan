@@ -1,16 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../config/firebase";
-import axios from "axios";
 import "../assets/mainPage.css";
 import { getCheckUser } from "../util";
+import { useDispatch, useSelector } from "react-redux";
+import { postFeed, renderPost } from "../services/posts.service";
+import { User } from "../interfaces/page";
+import { renderUser } from "../services/account.service";
 
-export default function UploadImages() {
+export default function UploadPost() {
   const [images, setImages] = useState<File[]>([]);
   const [name, setName] = useState<string>("");
   const [previews, setPreviews] = useState<string[]>([]);
   const [selectedValue, setSelectedValue] = useState<string>("public");
   const [showUploadFile, setShowUploadFile] = useState<boolean>(false);
+
+  const posts = useSelector((state: any) => {
+    state.post.post;
+  });
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(renderPost());
+  }, [dispatch]);
 
   const uploadImages = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -35,9 +47,7 @@ export default function UploadImages() {
         action: selectedValue,
       };
 
-      axios.post("http://localhost:3000/posts", newPost).then(() => {
-        console.log("All images uploaded and saved to database");
-      });
+      dispatch(postFeed(newPost));
     });
     setName("");
     setPreviews([]);
@@ -79,11 +89,25 @@ export default function UploadImages() {
     setShowUploadFile(!showUploadFile);
   };
 
+  /**
+   * Get User
+   */
+
+  const users = useSelector((state: any) => {
+    return state.users.accountUser;
+  });
+
+  const getUser: User = users.find((item: User) => item.id === getCheckUser.id);
+
+  useEffect(() => {
+    dispatch(renderUser());
+  }, [dispatch]);
+
   return (
     <>
       <div className="information-post">
         <div className="profile-photo">
-          <img src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-1.jpg?alt=media&token=2539162a-adf0-4333-9fea-f3dd9feb5103" />
+          <img src={getUser.avatar} />
         </div>
         <input
           value={name}

@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import reducerAccount from "./reducerAccount/accountReducer";
-import reducerPost from "./reducerUsers/reducerUser";
+import reducerPost from "./reducerUsers/reducerPost";
 
 const store: any = configureStore({
   reducer: {

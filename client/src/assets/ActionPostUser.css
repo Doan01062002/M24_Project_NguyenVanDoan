@@ -1,0 +1,191 @@
+.action-header-User {
+    font-family: Arial, sans-serif;
+    background-color: #fffdfd;
+    color: #fff;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .action-header-User .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #494848;
+    border-radius: 5px;
+  }
+  
+  .action-header-User .header button {
+    background-color: #3a3a3a;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+  }
+  
+  .action-header-User .header button:hover {
+    background-color: #505050;
+  }
+  
+  .action-header-User .tab-menu {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #444;
+  }
+  
+  .action-header-User .tab-menu span {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #00aaff;
+    padding: 10px 0;
+    border-bottom: 2px solid transparent;
+  }
+  
+  .action-header-User .tab-menu span.active {
+    border-bottom: 2px solid #00aaff;
+  }
+  
+  .post-manager-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+  }
+  
+  .post-manager-modal .modal-content {
+    background-color: #292929;
+    border-radius: 5px;
+    width: 600px;
+    padding: 20px;
+    color: #fff;
+  }
+  
+  .post-manager-modal .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+  }
+  
+  .post-manager-modal .modal-header h3 {
+    margin: 0;
+  }
+  
+  .post-manager-modal .close-button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .post-manager-modal .modal-body {
+    margin: 20px 0;
+  }
+  
+  .post-manager-modal .post-list {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+  }
+  
+  .post-manager-modal .post-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  
+  .post-manager-modal .post-item input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid #d4d0d0;
+    border-radius: 3px;
+  }
+  
+  .post-manager-modal .post-item input[type="checkbox"]:checked {
+    background-color: #00aaff;
+    border: none;
+  }
+  
+  .post-manager-modal .post-item input[type="checkbox"]:checked::after {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 12px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: translate(5px, 2px) rotate(45deg);
+  }
+  
+  .post-manager-modal .post-item label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .post-manager-modal .post-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .post-manager-modal .post-info p {
+    margin: 0;
+  }
+  
+  .post-manager-modal .modal-footer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    border-top: 1px solid #444;
+  }
+  
+  .post-manager-modal .delete-button, .next-button {
+    background-color: #3a3a3a;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .post-manager-modal .delete-button:hover, .next-button:hover {
+    background-color: #505050;
+  }
+  
+  .post-manager-modal .select-all {
+    background-color: #3a3a3a;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .post-manager-modal .select-all:hover {
+    background-color: #505050;
+  }
+  
