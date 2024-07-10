@@ -31,6 +31,8 @@ export default function Login_Register() {
 
   const dispatch = useDispatch();
 
+  console.log(users);
+
   useEffect(() => {
     dispatch(renderUser());
   }, [dispatch]);

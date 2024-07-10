@@ -68,6 +68,7 @@ export default function Nav_Left() {
   /**
    * Get User
    */
+  const [loading, setLoading] = useState<boolean>(true);
 
   const users = useSelector((state: any) => {
     return state.users.accountUser;
@@ -78,15 +79,29 @@ export default function Nav_Left() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(renderUser());
+    dispatch(renderUser()).then(() => setLoading(false));
   }, [dispatch]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!getUser) {
+    return <div>User not found</div>;
+  }
+
+  // Next Home
+  const NextHome = () => {
+    navigate("/");
+    window.location.reload();
+  };
 
   return (
     <>
       <div className="left">
         <a className="profile">
           <div className="profile-photo">
-            <img src={getUser.avatar} />
+            <img src={getUser.avatar} alt="" />
           </div>
           <div className="handle">
             <h4>{getUser.name}</h4>
@@ -95,7 +110,7 @@ export default function Nav_Left() {
         </a>
         {/*--------------- SIDEBAR ------------------*/}
         <div className="sidebar">
-          <a className="menu-item active">
+          <a onClick={NextHome} className="menu-item active">
             <span>
               <i className="uil uil-home" />
             </span>
@@ -181,10 +196,11 @@ export default function Nav_Left() {
           </a>
 
           <a className="menu-item">
-            <span>
-              <i className="uil uil-bookmark" />
-            </span>
-            <h3>Bookmarks</h3>
+            <i className="fa-solid fa-user-group">
+              <small className="notification-count">9+</small>
+            </i>
+
+            <h3>Friend</h3>
           </a>
           <a className="menu-item">
             <span>

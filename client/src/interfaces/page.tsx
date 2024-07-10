@@ -99,3 +99,11 @@ export interface UploadState {
   selectedValue: string;
   showUploadFile: boolean;
 }
+
+// Search
+
+export interface SearchResults {
+  users: User[];
+  posts: Post[];
+  groups: Group[];
+}

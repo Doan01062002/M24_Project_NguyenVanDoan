@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { renderPost } from "../services/posts.service";
-import { Post } from "../interfaces/page";
+import { renderUser } from "../services/account.service";
+import { Post, User, SearchResults } from "../interfaces/page"; // Điều chỉnh đường dẫn import cho phù hợp
 
-export default function Feeds() {
-  /**
-   * ************ Render Posts****************
-   */
+interface FeedsProps {
+  searchResults: SearchResults;
+}
 
+export default function Feeds({ searchResults }: FeedsProps) {
   const reversedPosts = useSelector((state: any) => state.post.post || []);
   const posts = [...reversedPosts].reverse();
   const dispatch = useDispatch();
@@ -16,13 +17,9 @@ export default function Feeds() {
     dispatch(renderPost());
   }, [dispatch]);
 
-  /**
-   * Hiển thị Detail
-   */
-
   const [showDetail, setShowDetail] = useState<boolean>(false);
   const [getIdItemFeed, setGetIdItemFeed] = useState<number>(0);
-  const [getPost, setGetPost] = useState<any>({
+  const [getPost, setGetPost] = useState<Post>({
     id: 0,
     user_id: 0,
     group_id: 0,
@@ -36,23 +33,49 @@ export default function Feeds() {
 
   const handleShowDetail = (id: number) => {
     setGetIdItemFeed(id);
-    setGetPost(posts.find((item: Post) => item.id === id));
-    setShowDetail(!showDetail);
+    setGetPost(posts.find((item: Post) => item.id === id) || getPost);
+    setShowDetail(true);
   };
+
+  const [loading, setLoading] = useState<boolean>(true);
+
+  const users = useSelector((state: any) => state.users.accountUser);
+
+  useEffect(() => {
+    dispatch(renderUser()).then(() => setLoading(false));
+  }, [dispatch]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  const getImageUserPost = (user_id: number) => {
+    const getUser: User = users.find((item: User) => item.id === user_id);
+    return getUser?.avatar || "";
+  };
+
+  const getUserNamePost = (user_id: number) => {
+    const getUser: User = users.find((item: User) => item.id === user_id);
+    return getUser?.name || "Unknown";
+  };
+
+  const renderPosts = searchResults?.posts?.length
+    ? searchResults.posts
+    : posts;
 
   return (
     <>
       <div className="feeds">
-        {posts &&
-          posts.map((item: Post, index: number) => (
+        {renderPosts &&
+          renderPosts.map((item: Post, index: number) => (
             <div key={index} className="feed">
               <div className="head">
                 <div className="user">
                   <div className="profile-photo">
-                    <img src="./images/profile-10.jpg" alt="profile" />
+                    <img src={getImageUserPost(item.user_id)} alt="profile" />
                   </div>
                   <div className="info">
-                    <h3>Lana Rose</h3>
+                    <h3>{getUserNamePost(item.user_id)}</h3>
                     <small>{item.created_at}</small>
                   </div>
                 </div>
@@ -101,73 +124,7 @@ export default function Feeds() {
               <div className="comments text-muted">View all 277 comments</div>
             </div>
           ))}
-
-        {/*--------------- END OF FEED 1 ------------------*/}
-        {/*--------------- FEED 2 ------------------*/}
-        <div className="feed">
-          <div className="head">
-            <div className="user">
-              <div className="profile-photo">
-                <img src="./images/profile-10.jpg" />
-              </div>
-              <div className="info">
-                <h3>Clara Dwayne</h3>
-                <small>Miami, 2 Hours Ago</small>
-              </div>
-            </div>
-            <span className="edit">
-              <i className="uil uil-ellipsis-h" />
-            </span>
-          </div>
-          <div className="photo">
-            <img src="./images/feed-3.jpg" />
-          </div>
-          <div className="action-buttons">
-            <div className="interaction-buttons">
-              <span>
-                <i className="uil uil-heart" />
-              </span>
-              <span>
-                <i className="uil uil-comment-dots" />
-              </span>
-              <span>
-                <i className="uil uil-share-alt" />
-              </span>
-            </div>
-            <div className="bookmark">
-              <span>
-                <i className="uil uil-bookmark-full" />
-              </span>
-            </div>
-          </div>
-          <div className="liked-by">
-            <span>
-              <img src="./images/profile-11.jpg" />
-            </span>
-            <span>
-              <img src="./images/profile-5.jpg" />
-            </span>
-            <span>
-              <img src="./images/profile-16.jpg" />
-            </span>
-            <p>
-              Liked by <b>Diana Rose</b> and <b>2, 323 others</b>
-            </p>
-          </div>
-          <div className="caption">
-            <p>
-              <b>Clara Dwayne</b> Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Veniam, fugiat? Ipsam voluptatibus beatae facere
-              eos harum voluptas distinctio, officia, facilis sed quisquam esse,
-              assumenda minima ut. Excepturi sit quis reiciendis!
-              <span className="harsh-tag">#lifestyle</span>
-            </p>
-          </div>
-          <div className="comments text-muted">View all 100 comments</div>
-        </div>
-        {/*--------------- END OF FEED 2 ------------------*/}
       </div>
-      {/* ---------------Show article detail -------------- */}
       {showDetail && (
         <div className="overlay-detail">
           <div className="modal-custom">
@@ -182,19 +139,23 @@ export default function Feeds() {
                 <div className="carousel-indicators">
                   {getPost.image.map((item: string, index: number) => (
                     <button
+                      key={index}
                       type="button"
                       data-bs-target="#carouselExampleIndicators"
                       data-bs-slide-to={index}
-                      className="active"
-                      aria-current="true"
-                      aria-label="Slide 1"
+                      className={index === 0 ? "active" : ""}
+                      aria-current={index === 0 ? "true" : "false"}
+                      aria-label={`Slide ${index + 1}`}
                     />
                   ))}
                 </div>
                 <div className="carousel-inner">
                   {getPost.image.map((item: string, index: number) => (
-                    <div key={index} className="carousel-item active">
-                      <img src={item} alt="..." />
+                    <div
+                      key={index}
+                      className={`carousel-item ${index === 0 ? "active" : ""}`}
+                    >
+                      <img src={item} alt={`Slide ${index + 1}`} />
                     </div>
                   ))}
                 </div>
@@ -251,7 +212,8 @@ export default function Feeds() {
                   </div>
                   <div className="caption">
                     <p>
-                      <b>Lana Rose</b> Lorem ipsum dolor sit quisquam eius.
+                      <b>{getUserNamePost(getPost.user_id)}</b>{" "}
+                      {getPost.content}
                       <span className="harsh-tag">#lifestyle</span>
                     </p>
                   </div>
@@ -266,9 +228,12 @@ export default function Feeds() {
               <div className="article-owner">
                 <div className="info-article-owner">
                   <div className="profile-photo">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-13.jpg?alt=media&token=ed27a7c7-abad-44d7-a008-1fa03306f85d" />
+                    <img
+                      src={getImageUserPost(getPost.user_id)}
+                      alt="profile"
+                    />
                   </div>
-                  <b>Niva ridania</b>
+                  <b>{getUserNamePost(getPost.user_id)}</b>
                   <h6>Follow</h6>
                 </div>
                 <span className="material-symbols-outlined">more_horiz</span>
@@ -293,7 +258,6 @@ export default function Feeds() {
                       </span>
                       <span className="material-symbols-outlined">reply</span>
                     </div>
-                    {/* Các bình luận trả lời con sẽ được đặt ở đây */}
                     <div className="comment-reply">
                       <div className="comment-container">
                         <img

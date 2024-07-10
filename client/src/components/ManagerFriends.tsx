@@ -35,6 +35,7 @@ export default function ManagerFriends() {
   /**
    * Get User
    */
+  const [loading, setLoading] = useState<boolean>(true);
 
   const users = useSelector((state: any) => {
     return state.users.accountUser;
@@ -45,9 +46,16 @@ export default function ManagerFriends() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(renderUser());
+    dispatch(renderUser()).then(() => setLoading(false));
   }, [dispatch]);
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!getUser) {
+    return <div>User not found</div>;
+  }
   return (
     <div className="container-friends">
       <header>

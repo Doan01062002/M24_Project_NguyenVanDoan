@@ -92,6 +92,7 @@ export default function UploadPost() {
   /**
    * Get User
    */
+  const [loading, setLoading] = useState<boolean>(true);
 
   const users = useSelector((state: any) => {
     return state.users.accountUser;
@@ -100,14 +101,22 @@ export default function UploadPost() {
   const getUser: User = users.find((item: User) => item.id === getCheckUser.id);
 
   useEffect(() => {
-    dispatch(renderUser());
+    dispatch(renderUser()).then(() => setLoading(false));
   }, [dispatch]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!getUser) {
+    return <div>User not found</div>;
+  }
 
   return (
     <>
       <div className="information-post">
         <div className="profile-photo">
-          <img src={getUser.avatar} />
+          <img src={getUser.avatar} alt="" />
         </div>
         <input
           value={name}

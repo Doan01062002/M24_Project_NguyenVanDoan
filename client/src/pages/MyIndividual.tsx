@@ -22,6 +22,7 @@ export default function MyIndividual() {
   /**
    * Get User
    */
+  const [loading, setLoading] = useState<boolean>(true);
 
   const users = useSelector((state: any) => {
     return state.users.accountUser;
@@ -32,8 +33,16 @@ export default function MyIndividual() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(renderUser());
+    dispatch(renderUser()).then(() => setLoading(false));
   }, [dispatch]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!getUser) {
+    return <div>User not found</div>;
+  }
 
   return (
     <>
@@ -49,7 +58,7 @@ export default function MyIndividual() {
           </div>
           <div className="create">
             <div className="profile-photo">
-              <img src={getUser.avatar} />
+              <img src={getUser.avatar} alt="" />
             </div>
           </div>
         </div>

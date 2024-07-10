@@ -19,6 +19,8 @@
       "friends": [
         {
           "userId": 1,
+          "nameFriend": "Mixi",
+          "imageFriend": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Fmu%E1%BB%91n%20g%C3%AC.jpg?alt=media&token=80ea73b6-6984-4a49-801c-5e69a142ae55",
           "add_at": "2024-02-20T11:00:00Z"
         }
       ],
@@ -42,8 +44,8 @@
       "friends": [
         {
           "userId": 1,
-          "nameFriend":"Mixi",
-          "imageFriend":"https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Fmu%E1%BB%91n%20g%C3%AC.jpg?alt=media&token=80ea73b6-6984-4a49-801c-5e69a142ae55",
+          "nameFriend": "Mixi",
+          "imageFriend": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Fmu%E1%BB%91n%20g%C3%AC.jpg?alt=media&token=80ea73b6-6984-4a49-801c-5e69a142ae55",
           "add_at": "2024-02-20T11:00:00Z"
         }
       ],
@@ -51,6 +53,26 @@
       "created_at": "9/7/2024 16:22:15",
       "status": true,
       "id": 2
+    },
+    {
+      "userName": "tien",
+      "email": "tien@gmail.com",
+      "name": "tien",
+      "password": "111",
+      "avatar": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Fmu%E1%BB%91n%20g%C3%AC.jpg?alt=media&token=8c45495f-43cd-495c-80e9-9ab5171aa51a",
+      "banner": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Fng%C3%B3.jpg?alt=media&token=ada0afc1-d878-4c4f-bd1e-9adc5e94f9a3",
+      "bio": "",
+      "city": "1111",
+      "work": "1111",
+      "study": "1111",
+      "hometown": "1111",
+      "relationship": "1111",
+      "follows": [],
+      "friends": [],
+      "groups": [],
+      "created_at": "10/7/2024 07:33:51",
+      "status": true,
+      "id": 3
     }
   ],
   "posts": [
@@ -84,6 +106,30 @@
       "status": true,
       "action": "public",
       "id": 3
+    },
+    {
+      "user_id": 3,
+      "content": "lương thiện",
+      "image": [
+        "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/image%2F265580596_1205478379941760_1975459677775581092_n.jpg?alt=media&token=8f5597b0-e473-4ce0-8a20-76e88d91d870"
+      ],
+      "reaction": [],
+      "created_at": "10/7/2024 07:36:41",
+      "status": true,
+      "action": "public",
+      "id": 4
+    },
+    {
+      "user_id": 2,
+      "content": "yes",
+      "image": [
+        "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/image%2FWallpaper%20-%20M%E1%BB%97i%20Ng%C3%A0y%205%20H%C3%ACnh%20N%E1%BB%81n%20M%C3%A1y%20T%C3%ADnh%20Full%20HD%20%231%202.jpg?alt=media&token=bf06371f-5a56-4591-96ef-44ae5ecb5298"
+      ],
+      "reaction": [],
+      "created_at": "10/7/2024 08:04:38",
+      "status": true,
+      "action": "private",
+      "id": 5
     }
   ],
   "groups": [
