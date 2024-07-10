@@ -36,6 +36,15 @@ export interface Friend {
   add_at: string;
 }
 
+//
+export interface FriendRequest {
+  id: number;
+  from_user_id: number;
+  to_user_id: number;
+  status: string;
+  created_at: string;
+}
+
 // Post
 export interface Post {
   id: number;
@@ -106,4 +115,11 @@ export interface SearchResults {
   users: User[];
   posts: Post[];
   groups: Group[];
+}
+
+// Acount admin
+
+export interface AccountAdmin {
+  accountName: string;
+  accountPassword: string;
 }

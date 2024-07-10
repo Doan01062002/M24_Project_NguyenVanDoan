@@ -3,30 +3,30 @@ import {
   addUser,
   renderUser,
   updateUser,
+  sendFriendRequest,
+  fetchFriendRequests,
+  acceptFriendRequest,
+  deleteFriendRequest,
 } from "../../services/account.service";
-import { User } from "../../interfaces/page";
+import { User, FriendRequest, Friend } from "../../interfaces/page";
 
-const state: User[] = [];
+const initialState = {
+  accountUser: [] as User[],
+  friendRequests: [] as FriendRequest[],
+};
 
 const reducerAccount = createSlice({
   name: "reducerAccount",
-  initialState: {
-    accountUser: state,
-  },
+  initialState,
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(renderUser.pending, (state, action) => {})
-      // render User
       .addCase(renderUser.fulfilled, (state, action) => {
         state.accountUser = action.payload;
       })
-      .addCase(renderUser.rejected, () => {})
-      // Add new User
       .addCase(addUser.fulfilled, (state, action) => {
         state.accountUser.push(action.payload);
       })
-      // Update User
       .addCase(updateUser.fulfilled, (state, action) => {
         const index = state.accountUser.findIndex(
           (user) => user.id === action.payload.id
@@ -34,6 +34,47 @@ const reducerAccount = createSlice({
         if (index !== -1) {
           state.accountUser[index] = action.payload;
         }
+      })
+      .addCase(fetchFriendRequests.fulfilled, (state, action) => {
+        state.friendRequests = action.payload;
+      })
+      .addCase(sendFriendRequest.fulfilled, (state, action) => {
+        state.friendRequests.push(action.payload);
+      })
+      .addCase(acceptFriendRequest.fulfilled, (state, action) => {
+        const {
+          requestId,
+          fromUserId,
+          toUserId,
+          newFriendForFromUser,
+          newFriendForToUser,
+        } = action.payload;
+
+        // Xóa lời mời kết bạn khỏi danh sách
+        state.friendRequests = state.friendRequests.filter(
+          (request) => request.id !== requestId
+        );
+
+        // Cập nhật danh sách bạn bè của người nhận
+        const toUserIndex = state.accountUser.findIndex(
+          (user) => user.id === toUserId
+        );
+        if (toUserIndex !== -1) {
+          state.accountUser[toUserIndex].friends.push(newFriendForFromUser);
+        }
+
+        // Cập nhật danh sách bạn bè của người gửi
+        const fromUserIndex = state.accountUser.findIndex(
+          (user) => user.id === fromUserId
+        );
+        if (fromUserIndex !== -1) {
+          state.accountUser[fromUserIndex].friends.push(newFriendForToUser);
+        }
+      })
+      .addCase(deleteFriendRequest.fulfilled, (state, action) => {
+        state.friendRequests = state.friendRequests.filter(
+          (request) => request.id !== action.payload
+        );
       });
   },
 });

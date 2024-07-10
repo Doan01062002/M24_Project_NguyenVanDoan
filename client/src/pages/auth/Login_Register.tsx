@@ -170,6 +170,7 @@ export default function Login_Register() {
       setValuePasswordLogin("");
       localStorage.setItem("checkUser", JSON.stringify(checkUsername));
       navigate("/");
+      window.location.reload();
     }
   };
   return (

@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import "../../assets/dashboard.css";
+import { setCheckAdmin } from "../../util";
+import { useNavigate } from "react-router-dom";
 
 // Define types for the data
 type OrderData = {
@@ -247,6 +249,16 @@ const Dashboard: React.FC = () => {
     }
   };
 
+  /**
+   *
+   */
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    setCheckAdmin();
+    navigate("/login_admin");
+  };
+
   return (
     <div className="containers">
       <aside>
@@ -306,7 +318,7 @@ const Dashboard: React.FC = () => {
             <span className="material-icons-sharp">add</span>
             <h3>Add Product</h3>
           </a>
-          <a href="#">
+          <a href="#" onClick={handleLogout}>
             <span className="material-icons-sharp">logout</span>
             <h3>Logout</h3>
           </a>

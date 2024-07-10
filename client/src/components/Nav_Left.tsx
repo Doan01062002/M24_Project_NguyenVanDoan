@@ -4,12 +4,14 @@ import { getCheckUser, setCheckUser } from "../util";
 import { useDispatch, useSelector } from "react-redux";
 import { User } from "../interfaces/page";
 import { renderUser } from "../services/account.service";
+import AddFriend from "./AddFriend";
 
 export default function Nav_Left() {
   /**
    *************Logic show Notifications************
    */
   const [showNotifications, setShowNotifications] = useState(false);
+  const [showFriends, setShowFriends] = useState<boolean>(false);
 
   const handleNotificationClick = () => {
     setShowNotifications(!showNotifications);
@@ -95,6 +97,10 @@ export default function Nav_Left() {
     navigate("/");
     window.location.reload();
   };
+
+  /**
+   * Add friend
+   */
 
   return (
     <>
@@ -195,11 +201,10 @@ export default function Nav_Left() {
             {/*------------- END NOTIFICATION POPUP -------------*/}
           </a>
 
-          <a className="menu-item">
+          <a onClick={() => setShowFriends(!showFriends)} className="menu-item">
             <i className="fa-solid fa-user-group">
               <small className="notification-count">9+</small>
             </i>
-
             <h3>Friend</h3>
           </a>
           <a className="menu-item">
@@ -223,6 +228,7 @@ export default function Nav_Left() {
         </div>
         {/*--------------- END OF SIDEBAR ------------------*/}
       </div>
+      {showFriends && <AddFriend></AddFriend>}
     </>
   );
 }

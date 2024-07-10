@@ -1,135 +1,84 @@
 {
   "users": [
     {
-      "id": 1,
-      "userName": "john",
-      "email": "john@gmail.com",
-      "name": "John Doe",
-      "avatar": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-17.jpg?alt=media&token=930dc33e-6354-4a23-bc7d-a85837f6ffde",
-      "banner": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-14.jpg?alt=media&token=7a3f5408-fa29-4121-8dfd-eb50b3b1132c",
-      "bio": "web developer and coffee enthusiast",
-      "status": true,
-      "password": "111",
-      "follows": [
-        {
-          "userId": 1,
-          "created_at": "2024-02-20T11:00:00Z"
-        }
-      ],
-      "friends": [
-        {
-          "userId": 1,
-          "nameFriend": "Mixi",
-          "imageFriend": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Fmu%E1%BB%91n%20g%C3%AC.jpg?alt=media&token=80ea73b6-6984-4a49-801c-5e69a142ae55",
-          "add_at": "2024-02-20T11:00:00Z"
-        }
-      ],
-      "groups": [],
-      "created_at": "2024-02-20T11:00:00Z"
-    },
-    {
       "userName": "vandoan",
       "email": "vandoan@gmail.com",
       "name": "vandoan",
       "password": "111",
-      "avatar": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2F265580596_1205478379941760_1975459677775581092_n.jpg?alt=media&token=9397b80d-36e4-4de7-89c7-ab5ae42e9157",
-      "banner": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Fmu%E1%BB%91n%20g%C3%AC.jpg?alt=media&token=80ea73b6-6984-4a49-801c-5e69a142ae55",
+      "avatar": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Ffeed-2.jpg?alt=media&token=a8ada7ce-2f69-4b3f-947d-b9a573c7cb6c",
+      "banner": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Fprofile-13.jpg?alt=media&token=3eb1c0d7-55ec-48d1-9854-31cdc47100cf",
       "bio": "",
-      "city": "123",
-      "work": "123",
-      "study": "123",
-      "hometown": "123",
-      "relationship": "123",
+      "city": "111",
+      "work": "111",
+      "study": "1111",
+      "hometown": "1111",
+      "relationship": "1111",
       "follows": [],
       "friends": [
         {
-          "userId": 1,
-          "nameFriend": "Mixi",
-          "imageFriend": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Fmu%E1%BB%91n%20g%C3%AC.jpg?alt=media&token=80ea73b6-6984-4a49-801c-5e69a142ae55",
-          "add_at": "2024-02-20T11:00:00Z"
+          "userId": 2,
+          "nameFriend": "tien",
+          "imageFriend": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Fprofile-11.jpg?alt=media&token=17a9ee1b-240e-4abf-9a44-a5388e0bd424",
+          "add_at": "2024-07-10T15:14:19.565Z"
         }
       ],
       "groups": [],
-      "created_at": "9/7/2024 16:22:15",
+      "created_at": "10/7/2024 21:37:19",
       "status": true,
-      "id": 2
+      "id": 1
     },
     {
       "userName": "tien",
       "email": "tien@gmail.com",
       "name": "tien",
       "password": "111",
-      "avatar": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Fmu%E1%BB%91n%20g%C3%AC.jpg?alt=media&token=8c45495f-43cd-495c-80e9-9ab5171aa51a",
-      "banner": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Fng%C3%B3.jpg?alt=media&token=ada0afc1-d878-4c4f-bd1e-9adc5e94f9a3",
+      "avatar": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Fprofile-11.jpg?alt=media&token=17a9ee1b-240e-4abf-9a44-a5388e0bd424",
+      "banner": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Fsocial%20logo.png?alt=media&token=49e67b7b-25a2-40ac-9a61-28a223b70e84",
       "bio": "",
       "city": "1111",
       "work": "1111",
       "study": "1111",
-      "hometown": "1111",
-      "relationship": "1111",
+      "hometown": "111",
+      "relationship": "111",
       "follows": [],
-      "friends": [],
+      "friends": [
+        {
+          "userId": 1,
+          "nameFriend": "vandoan",
+          "imageFriend": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Ffeed-2.jpg?alt=media&token=a8ada7ce-2f69-4b3f-947d-b9a573c7cb6c",
+          "add_at": "2024-07-10T15:14:19.565Z"
+        }
+      ],
       "groups": [],
-      "created_at": "10/7/2024 07:33:51",
+      "created_at": "10/7/2024 21:39:38",
       "status": true,
-      "id": 3
+      "id": 2
     }
   ],
   "posts": [
     {
-      "id": 1,
       "user_id": 1,
-      "group_id": 1,
-      "content": "Just finished a great book on web development!",
+      "content": "11111",
       "image": [
-        "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-19.jpg?alt=media&token=2b43e031-7839-4df3-9d4e-acb1132d5581"
+        "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/image%2Fprofile-4.jpg?alt=media&token=9622e1e7-98d1-4723-92d4-3565d21fe1f5"
       ],
-      "reactions": [
-        {
-          "user_id": 1,
-          "type": "laugh",
-          "created_at": "2024-02-20T11:00:00Z"
-        }
-      ],
-      "created_at": "2024-02-20T11:00:00Z",
+      "reaction": [],
+      "created_at": "10/7/2024 21:39:13",
       "status": true,
-      "action": "public"
+      "action": "public",
+      "id": 1
     },
     {
       "user_id": 2,
-      "content": "222",
+      "content": "11111",
       "image": [
-        "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/image%2Fmu%E1%BB%91n%20g%C3%AC.jpg?alt=media&token=3f1815da-d2f2-4300-838d-a89129247c79"
+        "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/image%2Fprofile-1.jpg?alt=media&token=a9097b6f-bb43-4003-b6c0-2fd65e58f45e"
       ],
       "reaction": [],
-      "created_at": "8/7/2024 23:51:27",
+      "created_at": "10/7/2024 21:40:42",
       "status": true,
       "action": "public",
-      "id": 3
-    },
-    {
-      "user_id": 3,
-      "content": "lương thiện",
-      "image": [
-        "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/image%2F265580596_1205478379941760_1975459677775581092_n.jpg?alt=media&token=8f5597b0-e473-4ce0-8a20-76e88d91d870"
-      ],
-      "reaction": [],
-      "created_at": "10/7/2024 07:36:41",
-      "status": true,
-      "action": "public",
-      "id": 4
-    },
-    {
-      "user_id": 2,
-      "content": "yes",
-      "image": [
-        "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/image%2FWallpaper%20-%20M%E1%BB%97i%20Ng%C3%A0y%205%20H%C3%ACnh%20N%E1%BB%81n%20M%C3%A1y%20T%C3%ADnh%20Full%20HD%20%231%202.jpg?alt=media&token=bf06371f-5a56-4591-96ef-44ae5ecb5298"
-      ],
-      "reaction": [],
-      "created_at": "10/7/2024 08:04:38",
-      "status": true,
-      "action": "private",
-      "id": 5
+      "id": 2
     }
   ],
   "groups": [
@@ -147,5 +96,54 @@
       ],
       "created_at": "2024-02-20T11:00:00Z"
     }
-  ]
+  ],
+  "friend_requests": [
+    {
+      "from_user_id": 1,
+      "to_user_id": 2,
+      "status": "accepted",
+      "created_at": "2024-07-10T14:52:28.720Z",
+      "id": 2
+    },
+    {
+      "from_user_id": 2,
+      "to_user_id": 1,
+      "status": "accepted",
+      "created_at": "2024-07-10T14:54:49.771Z",
+      "id": 3
+    },
+    {
+      "from_user_id": 1,
+      "to_user_id": 2,
+      "status": "accepted",
+      "created_at": "2024-07-10T15:03:48.372Z",
+      "id": 4
+    },
+    {
+      "from_user_id": 2,
+      "to_user_id": 1,
+      "status": "accepted",
+      "created_at": "2024-07-10T15:05:48.370Z",
+      "id": 5
+    },
+    {
+      "from_user_id": 1,
+      "to_user_id": 2,
+      "status": "accepted",
+      "created_at": "2024-07-10T15:13:57.217Z",
+      "id": 6
+    },
+    {
+      "from_user_id": 2,
+      "to_user_id": 1,
+      "status": "pending",
+      "created_at": "2024-07-10T15:15:32.642Z",
+      "id": 7
+    }
+  ],
+  "admin": {
+    "id": 1,
+    "accountName": "admin@gmail.com",
+    "accountPassword": "111"
+  }
 }

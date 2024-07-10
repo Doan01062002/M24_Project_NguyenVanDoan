@@ -4,6 +4,7 @@ import MainPage from "./pages/MainPage";
 import Login_Register from "./pages/auth/Login_Register";
 import { Route, Routes } from "react-router-dom";
 import MyIndividual from "./pages/MyIndividual";
+import LoginAdmin from "./pages/auth/LoginAdmin";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           element={<Login_Register></Login_Register>}
         ></Route>
         <Route path="/admin" element={<Dashboard></Dashboard>}></Route>
+        <Route path="/login_admin" element={<LoginAdmin></LoginAdmin>}></Route>
       </Routes>
     </>
   );

@@ -84,55 +84,6 @@ export default function Nav_Right() {
           </div>
         </div>
         {/*----- END OF MESSAGES -----*/}
-        {/*----- FRIEND REQUEST -----*/}
-        <div className="friend-requests">
-          <h4>Requests</h4>
-          <div className="request">
-            <div className="info">
-              <div className="profile-photo">
-                <img src="./images/profile-20.jpg" />
-              </div>
-              <div>
-                <h6>Hajia Bintu</h6>
-                <p className="text-muted">8 mutual friends</p>
-              </div>
-            </div>
-            <div className="action">
-              <button className="btn btn-primary">Accept</button>
-              <button className="btn">Decline</button>
-            </div>
-          </div>
-          <div className="request">
-            <div className="info">
-              <div className="profile-photo">
-                <img src="./images/profile-18.jpg" />
-              </div>
-              <div>
-                <h6>Edelson Mandela</h6>
-                <p className="text-muted">2 mutual friends</p>
-              </div>
-            </div>
-            <div className="action">
-              <button className="btn btn-primary">Accept</button>
-              <button className="btn">Decline</button>
-            </div>
-          </div>
-          <div className="request">
-            <div className="info">
-              <div className="profile-photo">
-                <img src="./images/profile-17.jpg" />
-              </div>
-              <div>
-                <h6>Megan Baldwin</h6>
-                <p className="text-muted">5 mutual friends</p>
-              </div>
-            </div>
-            <div className="action">
-              <button className="btn btn-primary">Accept</button>
-              <button className="btn">Decline</button>
-            </div>
-          </div>
-        </div>
       </div>
     </>
   );
