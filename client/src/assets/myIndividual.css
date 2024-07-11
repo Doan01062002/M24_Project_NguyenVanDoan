@@ -287,6 +287,10 @@ main .container .left .profile {
     border-radius: var(--border-radius);
 }
 
+.middle .nav-profile .banner-profile{
+    height: 300px;
+}
+
 .middle .nav-profile .nav-info{
     display: flex;
     flex-direction: row;

@@ -19,7 +19,7 @@
           "userId": 2,
           "nameFriend": "tien",
           "imageFriend": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Fprofile-11.jpg?alt=media&token=17a9ee1b-240e-4abf-9a44-a5388e0bd424",
-          "add_at": "2024-07-10T15:14:19.565Z"
+          "add_at": "2024-07-11T02:34:14.083Z"
         }
       ],
       "groups": [],
@@ -47,6 +47,12 @@
           "nameFriend": "vandoan",
           "imageFriend": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Ffeed-2.jpg?alt=media&token=a8ada7ce-2f69-4b3f-947d-b9a573c7cb6c",
           "add_at": "2024-07-10T15:14:19.565Z"
+        },
+        {
+          "userId": 1,
+          "nameFriend": "vandoan",
+          "imageFriend": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Ffeed-2.jpg?alt=media&token=a8ada7ce-2f69-4b3f-947d-b9a573c7cb6c",
+          "add_at": "2024-07-11T02:34:14.083Z"
         }
       ],
       "groups": [],
@@ -95,50 +101,25 @@
         }
       ],
       "created_at": "2024-02-20T11:00:00Z"
+    },
+    {
+      "groupName": "sleep1",
+      "userCreate": 1,
+      "group_picture": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/group-images%2Ffeed-7.jpg?alt=media&token=d2765fc0-64e7-4baa-b94b-7a8d85b9ec46",
+      "banner": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/group-images%2Ffeed-7.jpg?alt=media&token=d2765fc0-64e7-4baa-b94b-7a8d85b9ec46",
+      "bio": "1111",
+      "members": [],
+      "created_at": "2024-07-11T03:54:56.795Z",
+      "id": 2
     }
   ],
   "friend_requests": [
     {
-      "from_user_id": 1,
-      "to_user_id": 2,
-      "status": "accepted",
-      "created_at": "2024-07-10T14:52:28.720Z",
-      "id": 2
-    },
-    {
       "from_user_id": 2,
       "to_user_id": 1,
       "status": "accepted",
-      "created_at": "2024-07-10T14:54:49.771Z",
-      "id": 3
-    },
-    {
-      "from_user_id": 1,
-      "to_user_id": 2,
-      "status": "accepted",
-      "created_at": "2024-07-10T15:03:48.372Z",
-      "id": 4
-    },
-    {
-      "from_user_id": 2,
-      "to_user_id": 1,
-      "status": "accepted",
-      "created_at": "2024-07-10T15:05:48.370Z",
-      "id": 5
-    },
-    {
-      "from_user_id": 1,
-      "to_user_id": 2,
-      "status": "accepted",
-      "created_at": "2024-07-10T15:13:57.217Z",
-      "id": 6
-    },
-    {
-      "from_user_id": 2,
-      "to_user_id": 1,
-      "status": "pending",
-      "created_at": "2024-07-10T15:15:32.642Z",
-      "id": 7
+      "created_at": "2024-07-11T02:33:06.930Z",
+      "id": 1
     }
   ],
   "admin": {

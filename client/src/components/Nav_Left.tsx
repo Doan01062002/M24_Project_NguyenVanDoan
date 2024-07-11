@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { User } from "../interfaces/page";
 import { renderUser } from "../services/account.service";
 import AddFriend from "./AddFriend";
+import CreateGroup from "./CreateGroup";
 
 export default function Nav_Left() {
   /**
@@ -12,6 +13,7 @@ export default function Nav_Left() {
    */
   const [showNotifications, setShowNotifications] = useState(false);
   const [showFriends, setShowFriends] = useState<boolean>(false);
+  const [showCreateGroup, setShowCreateGroup] = useState<boolean>(false);
 
   const handleNotificationClick = () => {
     setShowNotifications(!showNotifications);
@@ -105,7 +107,7 @@ export default function Nav_Left() {
   return (
     <>
       <div className="left">
-        <a className="profile">
+        <a onClick={() => navigate("/profile")} className="profile">
           <div className="profile-photo">
             <img src={getUser.avatar} alt="" />
           </div>
@@ -207,11 +209,14 @@ export default function Nav_Left() {
             </i>
             <h3>Friend</h3>
           </a>
-          <a className="menu-item">
+          <a
+            onClick={() => setShowCreateGroup(!showCreateGroup)}
+            className="menu-item"
+          >
             <span>
               <i className="uil uil-chart-line" />
             </span>
-            <h3>Analytics</h3>
+            <h3>Create Group (+)</h3>
           </a>
           <a className="menu-item" id="theme">
             <span>
@@ -229,6 +234,7 @@ export default function Nav_Left() {
         {/*--------------- END OF SIDEBAR ------------------*/}
       </div>
       {showFriends && <AddFriend></AddFriend>}
+      {showCreateGroup && <CreateGroup></CreateGroup>}
     </>
   );
 }

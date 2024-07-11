@@ -68,7 +68,7 @@ export default function MyIndividual() {
           <Nav_Left />
           <div className="middle">
             <div className="nav-profile feed">
-              <img src={getUser.banner} />
+              <img className="banner-profile" src={getUser.banner} />
               <div className="nav-info">
                 <div className="nav-head-info">
                   <img className="profile-photo-info" src={getUser.avatar} />

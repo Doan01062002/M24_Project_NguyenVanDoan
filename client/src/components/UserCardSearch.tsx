@@ -1,6 +1,6 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { sendFriendRequest } from "../services/account.service";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { renderUser, sendFriendRequest } from "../services/account.service";
 import { User } from "../interfaces/page";
 import "../assets/UserCardSearch.css";
 import { getCheckUser } from "../util";
@@ -17,6 +17,7 @@ const UserCard: React.FC<UserCardProps> = ({ user }) => {
     dispatch(
       sendFriendRequest({ fromUserId: currentUser.id, toUserId: user.id })
     );
+    alert("đã gửi lời mời kết bạn");
   };
 
   return (

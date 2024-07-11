@@ -3,6 +3,7 @@ import reducerAccount from "./reducerAccount/accountReducer";
 import reducerPost from "./reducerUsers/reducerPost";
 import searchReducer from "./reducerUsers/searchSlice";
 import accountAdminReducer from "./reducerAccount/accountAdminReducer";
+import reducerGroup from "./reducerUsers/reducerGroup";
 
 const store: any = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store: any = configureStore({
     post: reducerPost,
     search: searchReducer,
     admin: accountAdminReducer,
+    group: reducerGroup,
   },
 });
 
