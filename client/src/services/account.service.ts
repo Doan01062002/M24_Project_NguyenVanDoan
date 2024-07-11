@@ -114,3 +114,9 @@ export const acceptFriendRequest: any = createAsyncThunk(
       return requestId;
     }
   );
+
+  // Change job status
+export const changeStatus:any = createAsyncThunk("users/changeStatus", async ({ id, status }: { id: number, status: boolean }) => {
+  const response = await axios.patch(`http://localhost:3000/users/${id}`, { status });
+  return response.data;
+});

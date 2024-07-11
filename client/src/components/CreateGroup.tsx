@@ -38,6 +38,7 @@ export default function CreateGroup() {
       banner: imageUrl,
       bio: groupDescription,
       members: [],
+      status: true,
       created_at: new Date().toISOString(),
     };
 

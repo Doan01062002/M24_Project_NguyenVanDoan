@@ -5,7 +5,7 @@ import { addGroup, renderGroup } from "../../services/group.service";
 const state: Group[] = [];
 
 const reducerGroups = createSlice({
-  name: "reducerPost",
+  name: "reducerGroup",
   initialState: {
     groups: state,
   },

@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 // Render group
-export const renderGroup:any = createAsyncThunk("users/renderUser",
+export const renderGroup:any = createAsyncThunk("groups/renderGroup",
     async ()=>{
         const response = await axios.get("http://localhost:3000/groups")
         return response.data
@@ -10,7 +10,7 @@ export const renderGroup:any = createAsyncThunk("users/renderUser",
 );
 
 // Add new group
-export const addGroup:any = createAsyncThunk("users/addUser",
+export const addGroup:any = createAsyncThunk("groups/addGroup",
     async (group)=>{
         const response = await axios.post("http://localhost:3000/groups", group)
         return response.data

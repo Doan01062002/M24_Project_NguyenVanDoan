@@ -7,6 +7,7 @@ import {
   fetchFriendRequests,
   acceptFriendRequest,
   deleteFriendRequest,
+  changeStatus,
 } from "../../services/account.service";
 import { User, FriendRequest, Friend } from "../../interfaces/page";
 
@@ -75,6 +76,15 @@ const reducerAccount = createSlice({
         state.friendRequests = state.friendRequests.filter(
           (request) => request.id !== action.payload
         );
+      })
+      // hàm cập nhật lại trạng thái
+      .addCase(changeStatus.fulfilled, (state, action) => {
+        const index = state.accountUser.findIndex(
+          (user) => user.id === action.payload.id
+        );
+        if (index !== -1) {
+          state.accountUser[index] = action.payload;
+        }
       });
   },
 });

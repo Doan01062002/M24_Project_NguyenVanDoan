@@ -1,0 +1,82 @@
+.table-container-user-admin {
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 20px;
+    margin-top: 8.5rem;
+}
+.table-container-user-admin .search-bar {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+.table-container-user-admin .search-bar input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.table-container-user-admin table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+.table-container-user-admin table thead tr th {
+    background-color: #f9fafc;
+    font-weight: 600;
+    color: #606060;
+    padding: 16px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.table-container-user-admin table tbody tr td {
+    padding: 16px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #333;
+}
+.table-container-user-admin table tbody tr td img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.table-container-user-admin table tbody tr td.positive {
+    color: #17c671;
+}
+.table-container-user-admin table tbody tr td.neutral {
+    color: red;
+}
+
+
+.table-container-user-admin .btn {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 11px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 120px;
+    height: 40px;
+  }
+  
+  .table-container-user-admin  .btn.blue {
+    background-color: #007bff;
+  }
+  
+  .table-container-user-admin  .btn.blue:hover {
+    background-color: #0056b3;
+  }
+  
+  .table-container-user-admin .btn.red {
+    background-color: #dc3545;
+  }
+  
+  .table-container-user-admin  .btn.red:hover {
+    background-color: #c82333;
+  }

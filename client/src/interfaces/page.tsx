@@ -83,6 +83,7 @@ export interface Group {
   banner: string;
   bio: string;
   members: Member[];
+  status: true;
   created_at: string;
 }
 
