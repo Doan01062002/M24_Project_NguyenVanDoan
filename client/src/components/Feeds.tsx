@@ -67,63 +67,65 @@ export default function Feeds({ searchResults }: FeedsProps) {
     <>
       <div className="feeds">
         {renderPosts &&
-          renderPosts.map((item: Post, index: number) => (
-            <div key={index} className="feed">
-              <div className="head">
-                <div className="user">
-                  <div className="profile-photo">
-                    <img src={getImageUserPost(item.user_id)} alt="profile" />
+          renderPosts.map((item: Post, index: number) =>
+            item.status ? (
+              <div key={index} className="feed">
+                <div className="head">
+                  <div className="user">
+                    <div className="profile-photo">
+                      <img src={getImageUserPost(item.user_id)} alt="profile" />
+                    </div>
+                    <div className="info">
+                      <h3>{getUserNamePost(item.user_id)}</h3>
+                      <small>{item.created_at}</small>
+                    </div>
                   </div>
-                  <div className="info">
-                    <h3>{getUserNamePost(item.user_id)}</h3>
-                    <small>{item.created_at}</small>
+                  <span className="edit">
+                    <i className="uil uil-ellipsis-h" />
+                  </span>
+                </div>
+                <div className="photo">
+                  <img src={item.image[0]} alt="" />
+                </div>
+                <div className="action-buttons">
+                  <div className="interaction-buttons">
+                    <span>
+                      <i className="uil uil-heart" />
+                    </span>
+                    <span onClick={() => handleShowDetail(item.id)}>
+                      <i className="uil uil-comment-dots" />
+                    </span>
+                    <span>
+                      <i className="uil uil-share-alt" />
+                    </span>
+                  </div>
+                  <div className="bookmark">
+                    <span>
+                      <i className="uil uil-bookmark-full" />
+                    </span>
                   </div>
                 </div>
-                <span className="edit">
-                  <i className="uil uil-ellipsis-h" />
-                </span>
-              </div>
-              <div className="photo">
-                <img src={item.image[0]} alt="" />
-              </div>
-              <div className="action-buttons">
-                <div className="interaction-buttons">
+                <div className="liked-by">
                   <span>
-                    <i className="uil uil-heart" />
-                  </span>
-                  <span onClick={() => handleShowDetail(item.id)}>
-                    <i className="uil uil-comment-dots" />
+                    <img src="./images/profile-10.jpg" alt="profile" />
                   </span>
                   <span>
-                    <i className="uil uil-share-alt" />
+                    <img src="./images/profile-4.jpg" alt="profile" />
                   </span>
+                  <span>
+                    <img src="./images/profile-15.jpg" alt="profile" />
+                  </span>
+                  <p>
+                    Liked by <b>Ernest Achiever</b> and <b>2, 323 others</b>
+                  </p>
                 </div>
-                <div className="bookmark">
-                  <span>
-                    <i className="uil uil-bookmark-full" />
-                  </span>
+                <div className="caption">
+                  <p>{item.content}</p>
                 </div>
+                <div className="comments text-muted">View all 277 comments</div>
               </div>
-              <div className="liked-by">
-                <span>
-                  <img src="./images/profile-10.jpg" alt="profile" />
-                </span>
-                <span>
-                  <img src="./images/profile-4.jpg" alt="profile" />
-                </span>
-                <span>
-                  <img src="./images/profile-15.jpg" alt="profile" />
-                </span>
-                <p>
-                  Liked by <b>Ernest Achiever</b> and <b>2, 323 others</b>
-                </p>
-              </div>
-              <div className="caption">
-                <p>{item.content}</p>
-              </div>
-              <div className="comments text-muted">View all 277 comments</div>
-            </div>
-          ))}
+            ) : null
+          )}
       </div>
       {showDetail && (
         <div className="overlay-detail">

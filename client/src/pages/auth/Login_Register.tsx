@@ -162,6 +162,9 @@ export default function Login_Register() {
       alert("Account or password is incorrect");
     } else if (valuePasswordLogin !== checkUsername.password) {
       alert("Account or password is incorrect");
+    } else if (!checkUsername.status) {
+      alert("Your account has been locked");
+      return;
     } else {
       console.log("Login successful");
       setValueUsernameLogin("");

@@ -1,6 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Post } from "../../interfaces/page";
-import { deletePost, postFeed, renderPost } from "../../services/posts.service";
+import {
+  changeStatus,
+  deletePost,
+  postFeed,
+  renderPost,
+} from "../../services/posts.service";
 
 const state: Post[] = [];
 
@@ -26,6 +31,15 @@ const reducerPost = createSlice({
         state.post = state.post.filter(
           (post: Post) => post.id !== action.payload
         );
+      })
+      // hàm cập nhật lại trạng thái
+      .addCase(changeStatus.fulfilled, (state, action) => {
+        const index = state.post.findIndex(
+          (post) => post.id === action.payload.id
+        );
+        if (index !== -1) {
+          state.post[index] = action.payload;
+        }
       })
       .addCase(renderPost.rejected, () => {});
   },

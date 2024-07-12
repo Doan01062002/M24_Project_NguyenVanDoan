@@ -14,9 +14,11 @@ export default function Nav_Left() {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showFriends, setShowFriends] = useState<boolean>(false);
   const [showCreateGroup, setShowCreateGroup] = useState<boolean>(false);
+  const [activeItem, setActiveItem] = useState<string>("home");
 
   const handleNotificationClick = () => {
     setShowNotifications(!showNotifications);
+    setActiveItem("notification");
   };
 
   /**
@@ -66,7 +68,9 @@ export default function Nav_Left() {
   const navigate = useNavigate();
   const logoutUser = () => {
     setCheckUser();
-    navigate("/login");
+    setTimeout(() => {
+      navigate("/login");
+    }, 1000);
   };
 
   /**
@@ -97,6 +101,7 @@ export default function Nav_Left() {
   // Next Home
   const NextHome = () => {
     navigate("/");
+    setActiveItem("home");
     window.location.reload();
   };
 
@@ -118,20 +123,19 @@ export default function Nav_Left() {
         </a>
         {/*--------------- SIDEBAR ------------------*/}
         <div className="sidebar">
-          <a onClick={NextHome} className="menu-item active">
+          <a
+            onClick={NextHome}
+            className={activeItem === "home" ? "menu-item active" : "menu-item"}
+          >
             <span>
               <i className="uil uil-home" />
             </span>
             <h3>Home</h3>
           </a>
-          <a className="menu-item">
-            <span>
-              <i className="uil uil-compass" />
-            </span>
-            <h3>Explore</h3>
-          </a>
           <a
-            className="menu-item"
+            className={
+              activeItem === "notification" ? "menu-item active" : "menu-item"
+            }
             id="notifications"
             onClick={handleNotificationClick}
           >
@@ -203,14 +207,21 @@ export default function Nav_Left() {
             {/*------------- END NOTIFICATION POPUP -------------*/}
           </a>
 
-          <a onClick={() => setShowFriends(!showFriends)} className="menu-item">
+          <a
+            onClick={() => {
+              setShowFriends(!showFriends), setShowCreateGroup(false);
+            }}
+            className="menu-item"
+          >
             <i className="fa-solid fa-user-group">
-              <small className="notification-count">9+</small>
+              <small className="notification-count">1+</small>
             </i>
             <h3>Friend</h3>
           </a>
           <a
-            onClick={() => setShowCreateGroup(!showCreateGroup)}
+            onClick={() => {
+              setShowCreateGroup(!showCreateGroup), setShowFriends(false);
+            }}
             className="menu-item"
           >
             <span>

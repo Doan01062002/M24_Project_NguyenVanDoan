@@ -1,26 +1,23 @@
 import React, { useEffect, useState } from "react";
-import "../../assets/asests_Admin/ManagerUser.css";
+import { Post } from "../../interfaces/page";
 import { useDispatch, useSelector } from "react-redux";
-import { changeStatus, renderUser } from "../../services/account.service";
-import { User } from "../../interfaces/page";
+import { changeStatus, renderPost } from "../../services/posts.service";
 
-export default function Manager_User() {
+export default function ManagerPost() {
   const [valueSearch, setValueSearch] = useState<string>("");
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [usersPerPage] = useState<number>(1); // số lượng người dùng trên mỗi trang
+  const [postsPerPage] = useState<number>(1); // số lượng nhóm trên mỗi trang
 
-  // get user
-  const users: User[] = useSelector((state: any) => {
-    return state.users.accountUser;
-  });
+  // get Post
+  const posts = useSelector((state: any) => state.post.post);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(renderUser());
+    dispatch(renderPost());
   }, [dispatch]);
 
-  const changeStatusUser = (id: number, status: boolean) => {
+  const changeStatusPost = (id: number, status: boolean) => {
     dispatch(changeStatus({ id, status: status }));
   };
 
@@ -30,21 +27,21 @@ export default function Manager_User() {
     setCurrentPage(1); // reset về trang đầu tiên khi tìm kiếm
   };
 
-  // Filter users based on search input
-  const filteredUsers = users.filter((user) =>
-    user.name.toLowerCase().includes(valueSearch.toLowerCase())
+  // Filter groups based on search input
+  const filteredPost = posts.filter((post: Post) =>
+    post.content.toLowerCase().includes(valueSearch.toLowerCase())
   );
 
-  // Logic for displaying users
-  const indexOfLastUser = currentPage * usersPerPage;
-  const indexOfFirstUser = indexOfLastUser - usersPerPage;
-  const currentUsers = filteredUsers.slice(indexOfFirstUser, indexOfLastUser);
+  // Logic for displaying groups
+  const indexOfLastGroup = currentPage * postsPerPage;
+  const indexOfFirstGroup = indexOfLastGroup - postsPerPage;
+  const currentGroups = filteredPost.slice(indexOfFirstGroup, indexOfLastGroup);
 
   // Change page
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(filteredUsers.length / usersPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(filteredPost.length / postsPerPage); i++) {
     pageNumbers.push(i);
   }
 
@@ -58,37 +55,45 @@ export default function Manager_User() {
           <thead>
             <tr>
               <th>ID</th>
-              <th>AVATAR</th>
-              <th>NAME</th>
-              <th>EMAIL</th>
+              <th>IMAGE</th>
+              <th>CONTENT</th>
+              <th>TYPE POST</th>
               <th>CREATE AT</th>
               <th>STATUS</th>
             </tr>
           </thead>
           <tbody>
-            {currentUsers.map((item: User, index: number) => (
+            {currentGroups.map((item: Post, index: number) => (
               <tr key={index}>
                 <td>{item.id}</td>
                 <td>
-                  <img src={item.avatar} alt={item.name} />
+                  <img
+                    style={{
+                      borderRadius: "0px",
+                      width: "50px",
+                      height: "50px",
+                    }}
+                    src={item.image[0]}
+                    alt={""}
+                  />
                 </td>
-                <td>{item.name}</td>
-                <td>{item.email}</td>
+                <td>{item.content}</td>
+                <td>{item.action}</td>
                 <td>{item.created_at}</td>
                 <td>
                   {item.status === true ? (
                     <button
-                      onClick={() => changeStatusUser(item.id, false)}
+                      onClick={() => changeStatusPost(item.id, false)}
                       className="btn red"
                     >
-                      Lock
+                      Hide
                     </button>
                   ) : (
                     <button
-                      onClick={() => changeStatusUser(item.id, true)}
+                      onClick={() => changeStatusPost(item.id, true)}
                       className="btn blue"
                     >
-                      Unlock
+                      Show
                     </button>
                   )}
                 </td>
@@ -96,7 +101,6 @@ export default function Manager_User() {
             ))}
           </tbody>
         </table>
-
         <ul className="pagination">
           {pageNumbers.map((number) => (
             <li

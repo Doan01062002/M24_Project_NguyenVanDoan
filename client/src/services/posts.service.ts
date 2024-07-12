@@ -24,3 +24,9 @@ export const deletePost: any = createAsyncThunk("posts/deletePost",
         return postId;
     }
 );
+
+// Change Post status
+export const changeStatus:any = createAsyncThunk("posts/changeStatus", async ({ id, status }: { id: number, status: boolean }) => {
+    const response = await axios.patch(`http://localhost:3000/posts/${id}`, { status });
+    return response.data;
+  });

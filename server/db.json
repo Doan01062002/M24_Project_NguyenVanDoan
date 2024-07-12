@@ -64,7 +64,7 @@
       ],
       "reaction": [],
       "created_at": "10/7/2024 21:39:13",
-      "status": true,
+      "status": false,
       "action": "public",
       "id": 1
     },
@@ -91,6 +91,26 @@
       "status": true,
       "action": "public",
       "id": 3
+    },
+    {
+      "user_id": 2,
+      "content": "",
+      "image": [],
+      "reaction": [],
+      "created_at": "12/7/2024 09:10:58",
+      "status": true,
+      "action": "public",
+      "id": 4
+    },
+    {
+      "user_id": 2,
+      "content": "234",
+      "image": [],
+      "reaction": [],
+      "created_at": "12/7/2024 09:11:02",
+      "status": true,
+      "action": "",
+      "id": 5
     }
   ],
   "groups": [
@@ -104,6 +124,17 @@
       "status": true,
       "created_at": "2024-07-11T10:48:05.251Z",
       "id": 1
+    },
+    {
+      "groupName": "hacker",
+      "userCreate": 1,
+      "group_picture": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/group-images%2Fsocial%20logo.png?alt=media&token=744d4648-8306-413e-bfc1-a87e208f310e",
+      "banner": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/group-images%2Fsocial%20logo.png?alt=media&token=744d4648-8306-413e-bfc1-a87e208f310e",
+      "bio": "hack lỏ",
+      "members": [],
+      "status": true,
+      "created_at": "11/7/2024 22:43:20",
+      "id": 2
     }
   ],
   "friend_requests": [

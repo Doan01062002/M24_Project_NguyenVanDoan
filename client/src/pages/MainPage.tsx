@@ -12,6 +12,7 @@ import { searchAll } from "../services/searchSlice.service";
 import { SearchResults } from "../interfaces/page";
 import UserCard from "../components/UserCardSearch";
 import GroupCard from "../components/GroupCardSearch";
+import { useNavigate } from "react-router-dom";
 
 export default function MainPage() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -31,6 +32,8 @@ export default function MainPage() {
   useEffect(() => {
     dispatch(renderUser()).then(() => setLoading(false));
   }, [dispatch]);
+
+  const navigate = useNavigate();
 
   const handleSearch = (query: string) => {
     dispatch(searchAll(query));
@@ -52,7 +55,7 @@ export default function MainPage() {
   }
 
   if (!getUser) {
-    return <div>User not found</div>;
+    return navigate("/login");
   }
 
   const filteredResults = {

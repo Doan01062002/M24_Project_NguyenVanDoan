@@ -80,3 +80,9 @@
   .table-container-user-admin  .btn.red:hover {
     background-color: #c82333;
   }
+
+
+  .table-container-user-admin .pagination{
+    margin-top: 20px;
+    margin-left: 300px;
+  }

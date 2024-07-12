@@ -16,3 +16,9 @@ export const addGroup:any = createAsyncThunk("groups/addGroup",
         return response.data
     }
 );
+
+// Change job status
+export const changeStatus:any = createAsyncThunk("groups/changeStatus", async ({ id, status }: { id: number, status: boolean }) => {
+    const response = await axios.patch(`http://localhost:3000/groups/${id}`, { status });
+    return response.data;
+  });

@@ -5,9 +5,12 @@ import Nav_Right from "../../components/component_admin/Nav_Right";
 import { useNavigate } from "react-router-dom";
 import { setCheckAdmin } from "../../util";
 import Manager_User from "../../components/component_admin/Manager_User";
+import Manager_Group from "../../components/component_admin/Manager_Group";
+import ManagerPost from "../../components/component_admin/ManagerPost";
 
 const Dashboard: React.FC = () => {
   const [showMain, setShowMain] = useState<string>("dashboard");
+  const [activeItem, setActiveItem] = useState<string>("dashboard");
   // Active
   const toggleSidebar = (show: boolean): void => {
     const sideMenu = document.querySelector("aside");
@@ -22,6 +25,11 @@ const Dashboard: React.FC = () => {
   const handleLogout = () => {
     setCheckAdmin();
     navigate("/login_admin");
+  };
+
+  const handleItemClick = (item: string) => {
+    setShowMain(item);
+    setActiveItem(item);
   };
 
   return (
@@ -47,47 +55,83 @@ const Dashboard: React.FC = () => {
         </div>
         <div className="sidebar">
           <a
-            onClick={() => setShowMain("dashboard")}
+            onClick={() => handleItemClick("dashboard")}
             href="#"
-            className="active"
+            className={activeItem === "dashboard" ? "active" : ""}
           >
             <span className="material-icons-sharp">dashboard</span>
             <h3>Dashboard</h3>
           </a>
-          <a onClick={() => setShowMain("managerUser")} href="#">
+          <a
+            onClick={() => handleItemClick("managerUser")}
+            href="#"
+            className={activeItem === "managerUser" ? "active" : ""}
+          >
             <span className="material-icons-sharp">person_outline</span>
             <h3>Users</h3>
           </a>
-          <a href="#">
+          <a
+            onClick={() => handleItemClick("managerGroup")}
+            href="#"
+            className={activeItem === "managerGroup" ? "active" : ""}
+          >
             <span className="material-icons-sharp">receipt_long</span>
-            <h3>Orders</h3>
+            <h3>Groups</h3>
           </a>
-          <a href="#">
+          <a
+            onClick={() => handleItemClick("managerPost")}
+            href="#"
+            className={activeItem === "managerPost" ? "active" : ""}
+          >
             <span className="material-icons-sharp">insights</span>
-            <h3>Analytics</h3>
+            <h3>Posts</h3>
           </a>
-          <a href="#">
+          <a
+            onClick={() => handleItemClick("messages")}
+            href="#"
+            className={activeItem === "messages" ? "active" : ""}
+          >
             <span className="material-icons-sharp">mail_outline</span>
             <h3>Messages</h3>
             <span className="message-count">26</span>
           </a>
-          <a href="#">
+          <a
+            onClick={() => handleItemClick("products")}
+            href="#"
+            className={activeItem === "products" ? "active" : ""}
+          >
             <span className="material-icons-sharp">inventory</span>
             <h3>Products</h3>
           </a>
-          <a href="#">
+          <a
+            onClick={() => handleItemClick("reports")}
+            href="#"
+            className={activeItem === "reports" ? "active" : ""}
+          >
             <span className="material-icons-sharp">report_gmailerrorred</span>
             <h3>Reports</h3>
           </a>
-          <a href="#">
+          <a
+            onClick={() => handleItemClick("settings")}
+            href="#"
+            className={activeItem === "settings" ? "active" : ""}
+          >
             <span className="material-icons-sharp">settings</span>
             <h3>Settings</h3>
           </a>
-          <a href="#">
+          <a
+            onClick={() => handleItemClick("addProduct")}
+            href="#"
+            className={activeItem === "addProduct" ? "active" : ""}
+          >
             <span className="material-icons-sharp">add</span>
             <h3>Add Product</h3>
           </a>
-          <a href="#" onClick={handleLogout}>
+          <a
+            href="#"
+            onClick={handleLogout}
+            className={activeItem === "logout" ? "active" : ""}
+          >
             <span className="material-icons-sharp">logout</span>
             <h3>Logout</h3>
           </a>
@@ -95,6 +139,8 @@ const Dashboard: React.FC = () => {
       </aside>
       {showMain === "dashboard" ? <Nav_Main></Nav_Main> : ""}
       {showMain === "managerUser" ? <Manager_User></Manager_User> : ""}
+      {showMain === "managerGroup" ? <Manager_Group></Manager_Group> : ""}
+      {showMain === "managerPost" ? <ManagerPost></ManagerPost> : ""}
       <Nav_Right></Nav_Right>
     </div>
   );

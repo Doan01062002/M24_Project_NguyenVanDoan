@@ -39,7 +39,8 @@ export default function CreateGroup() {
       bio: groupDescription,
       members: [],
       status: true,
-      created_at: new Date().toISOString(),
+      created_at:
+        new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
     };
 
     dispatch(addGroup(newGroup));
