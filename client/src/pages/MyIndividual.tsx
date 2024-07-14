@@ -48,7 +48,15 @@ export default function MyIndividual() {
     <>
       <nav>
         <div className="container">
-          <h2 className="logo">VNSN</h2>
+          <div className="logo">
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesAdmin%2Flogo.png?alt=media&token=018c46b8-3e94-4fbd-a405-f0283e15a92e"
+              alt="Logo"
+            />
+            <h2>
+              VN<span className="danger">SN</span>
+            </h2>
+          </div>
           <div className="search-bar">
             <i className="uil uil-search" />
             <input

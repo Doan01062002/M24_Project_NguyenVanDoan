@@ -5,26 +5,19 @@
       "email": "vandoan@gmail.com",
       "name": "vandoan",
       "password": "111",
-      "avatar": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Ffeed-2.jpg?alt=media&token=a8ada7ce-2f69-4b3f-947d-b9a573c7cb6c",
-      "banner": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Fprofile-13.jpg?alt=media&token=3eb1c0d7-55ec-48d1-9854-31cdc47100cf",
+      "avatar": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Fprofile-8.jpg?alt=media&token=32fcb447-59f4-4275-9984-96efa4dbf343",
+      "banner": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Ffeed-2.jpg?alt=media&token=c2eaaf5c-edf8-4148-be98-8e24a5269c18",
       "bio": "",
-      "city": "111",
-      "work": "111",
-      "study": "1111",
+      "city": "11111",
+      "work": "1111",
+      "study": "11111",
       "hometown": "1111",
       "relationship": "1111",
       "follows": [],
-      "friends": [
-        {
-          "userId": 2,
-          "nameFriend": "tien",
-          "imageFriend": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Fprofile-11.jpg?alt=media&token=17a9ee1b-240e-4abf-9a44-a5388e0bd424",
-          "add_at": "2024-07-11T07:41:58.407Z"
-        }
-      ],
+      "friends": [],
       "groups": [],
       "created_at": "10/7/2024 21:37:19",
-      "status": false,
+      "status": true,
       "id": 1
     },
     {
@@ -41,14 +34,7 @@
       "hometown": "111",
       "relationship": "111",
       "follows": [],
-      "friends": [
-        {
-          "userId": 1,
-          "nameFriend": "vandoan",
-          "imageFriend": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Ffeed-2.jpg?alt=media&token=a8ada7ce-2f69-4b3f-947d-b9a573c7cb6c",
-          "add_at": "2024-07-11T07:41:58.407Z"
-        }
-      ],
+      "friends": [],
       "groups": [],
       "created_at": "10/7/2024 21:39:38",
       "status": true,
@@ -57,60 +43,144 @@
   ],
   "posts": [
     {
-      "user_id": 1,
-      "content": "11111",
+      "user_id": 2,
+      "content": "1111",
       "image": [
-        "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/image%2Fprofile-4.jpg?alt=media&token=9622e1e7-98d1-4723-92d4-3565d21fe1f5"
+        "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/image%2Fprofile-9.jpg?alt=media&token=b72b0000-6a0d-4228-addc-02417f688ad1"
       ],
       "reaction": [],
-      "created_at": "10/7/2024 21:39:13",
-      "status": false,
+      "comments": [],
+      "created_at": "12/7/2024 15:31:39",
+      "status": true,
       "action": "public",
       "id": 1
     },
     {
       "user_id": 2,
-      "content": "11111",
+      "content": "hacker lỏ",
       "image": [
-        "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/image%2Fprofile-1.jpg?alt=media&token=a9097b6f-bb43-4003-b6c0-2fd65e58f45e"
+        "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/image%2Fsocial%20logo.png?alt=media&token=d3505db6-f01a-4599-bf22-5546ba38c20e"
       ],
-      "reaction": [],
-      "created_at": "10/7/2024 21:40:42",
+      "reaction": [
+        {
+          "user_id": 1,
+          "type": "tym",
+          "create_at": "13/7/2024 23:12:28"
+        }
+      ],
+      "comments": [],
+      "created_at": "12/7/2024 15:32:02",
       "status": true,
-      "action": "public",
+      "action": "",
       "id": 2
     },
     {
-      "user_id": 1,
-      "content": "222",
+      "user_id": 2,
+      "content": "girls",
       "image": [
-        "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/image%2Ffeed-6.jpg?alt=media&token=9c12cd64-a027-416c-8448-33e6549db481"
+        "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/image%2Fprofile-20.jpg?alt=media&token=9b367ef9-4130-4b7b-8673-3d329fc9af45",
+        "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/image%2Fprofile-5.jpg?alt=media&token=8e64910d-8ea7-4de9-8b96-75bbc41a4d19"
       ],
       "reaction": [],
-      "created_at": "11/7/2024 15:34:58",
+      "comments": [],
+      "created_at": "12/7/2024 15:32:47",
       "status": true,
-      "action": "public",
+      "action": "",
       "id": 3
     },
     {
-      "user_id": 2,
-      "content": "",
-      "image": [],
+      "user_id": 1,
+      "content": "11111",
+      "image": [
+        "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/image%2Fprofile-17.jpg?alt=media&token=9a4cea5f-0e9d-4aed-8294-2392ae61a195"
+      ],
       "reaction": [],
-      "created_at": "12/7/2024 09:10:58",
+      "comments": [],
+      "created_at": "12/7/2024 15:33:22",
       "status": true,
       "action": "public",
       "id": 4
     },
     {
-      "user_id": 2,
-      "content": "234",
-      "image": [],
+      "user_id": 1,
+      "content": "22222",
+      "image": [
+        "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/image%2Ffeed-5.jpg?alt=media&token=81af6a92-53d8-4fc0-a891-74744ed881ac"
+      ],
       "reaction": [],
-      "created_at": "12/7/2024 09:11:02",
+      "comments": [],
+      "created_at": "12/7/2024 15:33:42",
       "status": true,
       "action": "",
       "id": 5
+    },
+    {
+      "user_id": 1,
+      "content": "",
+      "image": [
+        "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/image%2Fprofile-5.jpg?alt=media&token=6aac2254-4192-41bc-a532-04c6bfe2a5cc",
+        "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/image%2Fprofile-9.jpg?alt=media&token=d34f4e8d-9a45-479a-bac2-f59d261dd47f"
+      ],
+      "reaction": [
+        {
+          "user_id": 1,
+          "type": "tym",
+          "create_at": "13/7/2024 22:59:46"
+        }
+      ],
+      "comments": [
+        {
+          "user_id": 1,
+          "user_name": "vandoan",
+          "avatar": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Ffeed-5.jpg?alt=media&token=0ec91054-50ae-4ab5-933a-6f7c2bd0a17b",
+          "content": "111",
+          "reaction": [],
+          "reply_comment": [],
+          "created_at": "13/7/2024 10:42:36"
+        },
+        {
+          "user_id": 1,
+          "user_name": "vandoan",
+          "avatar": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Ffeed-5.jpg?alt=media&token=0ec91054-50ae-4ab5-933a-6f7c2bd0a17b",
+          "content": "222",
+          "reaction": [],
+          "reply_comment": [],
+          "created_at": "13/7/2024 18:07:52"
+        }
+      ],
+      "created_at": "12/7/2024 20:25:58",
+      "status": true,
+      "action": "public",
+      "id": 6
+    },
+    {
+      "user_id": 1,
+      "content": "1234",
+      "image": [
+        "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/image%2Ffeed-6.jpg?alt=media&token=7489b96f-6fd7-400e-8a72-fe09f6a5d630"
+      ],
+      "reaction": [
+        {
+          "user_id": 2,
+          "type": "tym",
+          "create_at": "14/7/2024 17:32:10"
+        }
+      ],
+      "comments": [
+        {
+          "user_id": 2,
+          "user_name": "tien",
+          "avatar": "https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/images%2Fprofile-11.jpg?alt=media&token=17a9ee1b-240e-4abf-9a44-a5388e0bd424",
+          "content": "very good",
+          "reaction": [],
+          "reply_comment": [],
+          "created_at": "14/7/2024 18:18:09"
+        }
+      ],
+      "created_at": "14/7/2024 17:31:24",
+      "status": true,
+      "action": "public",
+      "id": 7
     }
   ],
   "groups": [
@@ -144,6 +214,20 @@
       "status": "accepted",
       "created_at": "2024-07-11T07:41:31.263Z",
       "id": 1
+    },
+    {
+      "from_user_id": 2,
+      "to_user_id": 1,
+      "status": "accepted",
+      "created_at": "2024-07-12T06:29:11.608Z",
+      "id": 2
+    },
+    {
+      "from_user_id": 1,
+      "to_user_id": 2,
+      "status": "pending",
+      "created_at": "2024-07-14T06:03:01.666Z",
+      "id": 3
     }
   ],
   "admin": {

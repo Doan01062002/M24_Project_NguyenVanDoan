@@ -28,7 +28,7 @@ export default function Nav_Right() {
           {/*----- MESSAGES -----*/}
           <div className="message">
             <div className="profile-photo">
-              <img src="./images/profile-17.jpg" />
+              <img src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-10.jpg?alt=media&token=be3c7869-2c76-4731-ad6b-d305cac7f6c1" />
             </div>
             <div className="message-body">
               <h6>Edem Quist</h6>
@@ -37,7 +37,7 @@ export default function Nav_Right() {
           </div>
           <div className="message">
             <div className="profile-photo">
-              <img src="./images/profile-6.jpg" />
+              <img src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-12.jpg?alt=media&token=4f31bf09-4cfa-46a8-91bb-f55d1ff11cdc" />
             </div>
             <div className="message-body">
               <h6>Daniella Jackson</h6>
@@ -46,7 +46,7 @@ export default function Nav_Right() {
           </div>
           <div className="message">
             <div className="profile-photo">
-              <img src="./images/profile-8.jpg" />
+              <img src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-18.jpg?alt=media&token=e1ccfc38-fb86-47bc-8a6e-ef0b244828fe" />
               <div className="active" />
             </div>
             <div className="message-body">
@@ -56,7 +56,7 @@ export default function Nav_Right() {
           </div>
           <div className="message">
             <div className="profile-photo">
-              <img src="./images/profile-10.jpg" />
+              <img src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-11.jpg?alt=media&token=55df5258-7239-4f7c-ba8c-bbf9412ab1de" />
             </div>
             <div className="message-body">
               <h6>Juliet Makarey</h6>
@@ -65,7 +65,7 @@ export default function Nav_Right() {
           </div>
           <div className="message">
             <div className="profile-photo">
-              <img src="./images/profile-3.jpg" />
+              <img src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-13.jpg?alt=media&token=ed27a7c7-abad-44d7-a008-1fa03306f85d" />
               <div className="active" />
             </div>
             <div className="message-body">
@@ -75,7 +75,7 @@ export default function Nav_Right() {
           </div>
           <div className="message">
             <div className="profile-photo">
-              <img src="./images/profile-15.jpg" />
+              <img src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-14.jpg?alt=media&token=7a3f5408-fa29-4121-8dfd-eb50b3b1132c" />
             </div>
             <div className="message-body">
               <h6>Benjamin Dwayne</h6>

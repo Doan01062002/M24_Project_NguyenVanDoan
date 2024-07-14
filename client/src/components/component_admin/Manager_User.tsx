@@ -7,7 +7,10 @@ import { User } from "../../interfaces/page";
 export default function Manager_User() {
   const [valueSearch, setValueSearch] = useState<string>("");
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [usersPerPage] = useState<number>(1); // số lượng người dùng trên mỗi trang
+  const [usersPerPage] = useState<number>(5); // số lượng người dùng trên mỗi trang
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
+
+  const [selectedUser, setSelectedUser] = useState<User | null>(null);
 
   // get user
   const users: User[] = useSelector((state: any) => {
@@ -30,9 +33,25 @@ export default function Manager_User() {
     setCurrentPage(1); // reset về trang đầu tiên khi tìm kiếm
   };
 
-  // Filter users based on search input
-  const filteredUsers = users.filter((user) =>
-    user.name.toLowerCase().includes(valueSearch.toLowerCase())
+  // Hàm sắp xếp
+  const sortUsers = (users: User[], order: "asc" | "desc") => {
+    return users.sort((a, b) => {
+      if (a.name.toLowerCase() < b.name.toLowerCase()) {
+        return order === "asc" ? -1 : 1;
+      }
+      if (a.name.toLowerCase() > b.name.toLowerCase()) {
+        return order === "asc" ? 1 : -1;
+      }
+      return 0;
+    });
+  };
+
+  // Filter and sort users based on search input and sort order
+  const filteredUsers = sortUsers(
+    users.filter((user) =>
+      user.name.toLowerCase().includes(valueSearch.toLowerCase())
+    ),
+    sortOrder
   );
 
   // Logic for displaying users
@@ -48,6 +67,16 @@ export default function Manager_User() {
     pageNumbers.push(i);
   }
 
+  // Handle sort order change
+  const handleSortOrderChange = () => {
+    setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+  };
+
+  //
+  const handleUserClick = (user: User) => {
+    setSelectedUser(user);
+  };
+
   return (
     <>
       <div className="table-container-user-admin">
@@ -59,7 +88,9 @@ export default function Manager_User() {
             <tr>
               <th>ID</th>
               <th>AVATAR</th>
-              <th>NAME</th>
+              <th onClick={handleSortOrderChange}>
+                NAME {sortOrder === "asc" ? "▲" : "▼"}
+              </th>
               <th>EMAIL</th>
               <th>CREATE AT</th>
               <th>STATUS</th>
@@ -67,7 +98,7 @@ export default function Manager_User() {
           </thead>
           <tbody>
             {currentUsers.map((item: User, index: number) => (
-              <tr key={index}>
+              <tr key={index} onClick={() => handleUserClick(item)}>
                 <td>{item.id}</td>
                 <td>
                   <img src={item.avatar} alt={item.name} />
@@ -111,6 +142,27 @@ export default function Manager_User() {
           ))}
         </ul>
       </div>
+
+      {selectedUser && (
+        <div className="user-detail-overlay">
+          <div className="user-detail">
+            <h2>User Details</h2>
+            <p>ID: {selectedUser.id}</p>
+            <p>Name: {selectedUser.name}</p>
+            <p>Email: {selectedUser.email}</p>
+            <p>City: {selectedUser.city}</p>
+            <p>Work: {selectedUser.work}</p>
+            <p>Study: {selectedUser.study}</p>
+            <p>Hometown: {selectedUser.hometown}</p>
+            <p>Relationship: {selectedUser.relationship}</p>
+            <p>Created At: {selectedUser.created_at}</p>
+            <p>Status: {selectedUser.status ? "Active" : "Locked"}</p>
+            <button onClick={() => setSelectedUser(null)} className="btn close">
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }

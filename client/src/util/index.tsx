@@ -1,4 +1,4 @@
-import { User } from "../interfaces/page";
+import { AccountAdmin, User } from "../interfaces/page";
 
 // User
 export const setCheckUser = () => {
@@ -22,4 +22,4 @@ const getCheckAdmins = (): any => {
   return userString ? JSON.parse(userString) : null;
 };
 
-export const getCheckAdmin: User = getCheckAdmins();
+export const getCheckAdmin: AccountAdmin = getCheckAdmins();

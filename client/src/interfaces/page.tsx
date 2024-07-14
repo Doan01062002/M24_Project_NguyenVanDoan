@@ -52,7 +52,8 @@ export interface Post {
   group_id: number;
   content: string;
   image: string[];
-  reactions: Reaction[];
+  reaction: Reaction[];
+  comments: Comment[];
   created_at: string;
   status: true;
   action: string;
@@ -67,12 +68,25 @@ export interface Reaction {
 // Comment
 export interface Comment {
   id: number;
-  post_id: number;
   user_id: number;
+  user_name: string;
+  avatar: string;
   image: string;
   content: string;
   reactions: Reaction[];
+  reply_comment: replyComment[];
   created_at: string;
+}
+
+// Reply comment
+export interface replyComment {
+  user_id: number;
+  user_name: string;
+  avatar: string;
+  image: string;
+  content: string;
+  reactions: Reaction[];
+  create_at: string;
 }
 
 // Group

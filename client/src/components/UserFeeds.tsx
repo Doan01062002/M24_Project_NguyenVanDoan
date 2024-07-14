@@ -26,6 +26,7 @@ export default function UserFeeds() {
     content: "",
     image: [],
     reactions: [],
+    comments: [],
     created_at: "",
     status: true,
     action: "",
@@ -101,17 +102,8 @@ export default function UserFeeds() {
                 </div>
               </div>
               <div className="liked-by">
-                <span>
-                  <img src="./images/profile-10.jpg" alt="profile" />
-                </span>
-                <span>
-                  <img src="./images/profile-4.jpg" alt="profile" />
-                </span>
-                <span>
-                  <img src="./images/profile-15.jpg" alt="profile" />
-                </span>
                 <p>
-                  Liked by <b>Ernest Achiever</b> and <b>2, 323 others</b>
+                  Liked by <b>1 people</b>
                 </p>
               </div>
               <div className="caption">
@@ -120,67 +112,6 @@ export default function UserFeeds() {
               <div className="comments text-muted">View all 277 comments</div>
             </div>
           ))}
-        <div className="feed">
-          <div className="head">
-            <div className="user">
-              <div className="profile-photo">
-                <img src="./images/profile-10.jpg" alt="profile" />
-              </div>
-              <div className="info">
-                <h3>Clara Dwayne</h3>
-                <small>Miami, 2 Hours Ago</small>
-              </div>
-            </div>
-            <span className="edit">
-              <i className="uil uil-ellipsis-h" />
-            </span>
-          </div>
-          <div className="photo">
-            <img src="./images/feed-3.jpg" alt="feed" />
-          </div>
-          <div className="action-buttons">
-            <div className="interaction-buttons">
-              <span>
-                <i className="uil uil-heart" />
-              </span>
-              <span>
-                <i className="uil uil-comment-dots" />
-              </span>
-              <span>
-                <i className="uil uil-share-alt" />
-              </span>
-            </div>
-            <div className="bookmark">
-              <span>
-                <i className="uil uil-bookmark-full" />
-              </span>
-            </div>
-          </div>
-          <div className="liked-by">
-            <span>
-              <img src="./images/profile-11.jpg" alt="profile" />
-            </span>
-            <span>
-              <img src="./images/profile-5.jpg" alt="profile" />
-            </span>
-            <span>
-              <img src="./images/profile-16.jpg" alt="profile" />
-            </span>
-            <p>
-              Liked by <b>Diana Rose</b> and <b>2, 323 others</b>
-            </p>
-          </div>
-          <div className="caption">
-            <p>
-              <b>Clara Dwayne</b> Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Veniam, fugiat? Ipsam voluptatibus beatae facere
-              eos harum voluptas distinctio, officia, facilis sed quisquam esse,
-              assumenda minima ut. Excepturi sit quis reiciendis!
-              <span className="harsh-tag">#lifestyle</span>
-            </p>
-          </div>
-          <div className="comments text-muted">View all 100 comments</div>
-        </div>
       </div>
       {showDetail && (
         <div className="overlay-detail">

@@ -37,9 +37,9 @@ const AddFriend: React.FC = () => {
   return (
     <div className="friend-requests">
       <div className="header">
-        <h2>Lời mời kết bạn</h2>
+        <h2>Friend request</h2>
         <a href="#" className="view-all">
-          Xem tất cả
+          View all
         </a>
       </div>
       <div className="requests-container">
@@ -49,20 +49,20 @@ const AddFriend: React.FC = () => {
             <div className="info">
               <p className="name">{request.fromUser.name}</p>
               <p className="mutual-friends">
-                Bạn chung: {request.mutualFriends}
+                Mutual Friends: {request.mutualFriends}
               </p>
               <div className="buttons">
                 <button
                   className="accept"
                   onClick={() => handleAccept(request.id, request.from_user_id)}
                 >
-                  Xác nhận
+                  Accept
                 </button>
                 <button
                   className="delete"
                   onClick={() => handleDelete(request.id)}
                 >
-                  Xóa
+                  Delete
                 </button>
               </div>
             </div>

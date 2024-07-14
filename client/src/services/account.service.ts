@@ -41,6 +41,15 @@ export const sendFriendRequest:any = createAsyncThunk(
   }
 );
 
+// Get friend requests
+export const getFriendRequest:any = createAsyncThunk("friendRequests/getFriendRequest",
+  async ()=>{
+    const response = await axios.get("http://localhost:3000/friend_requests")
+
+    return response.data
+  }
+)
+
 // Fetch friend requests
 export const fetchFriendRequests:any = createAsyncThunk(
   "friendRequests/fetchFriendRequests",
@@ -115,8 +124,25 @@ export const acceptFriendRequest: any = createAsyncThunk(
     }
   );
 
-  // Change job status
+  // Change user status
 export const changeStatus:any = createAsyncThunk("users/changeStatus", async ({ id, status }: { id: number, status: boolean }) => {
   const response = await axios.patch(`http://localhost:3000/users/${id}`, { status });
   return response.data;
 });
+
+// Unfriend
+export const unfriend: any = createAsyncThunk(
+  "users/unfriend",
+  async ({ userId, friendId }: { userId: number; friendId: number }) => {
+    const userResponse = await axios.get(`http://localhost:3000/users/${userId}`);
+    const friendResponse = await axios.get(`http://localhost:3000/users/${friendId}`);
+
+    const updatedUserFriends = userResponse.data.friends.filter((friend: Friend) => friend.userId !== friendId);
+    const updatedFriendFriends = friendResponse.data.friends.filter((friend: Friend) => friend.userId !== userId);
+
+    await axios.patch(`http://localhost:3000/users/${userId}`, { friends: updatedUserFriends });
+    await axios.patch(`http://localhost:3000/users/${friendId}`, { friends: updatedFriendFriends });
+
+    return { userId, friendId };
+  }
+);

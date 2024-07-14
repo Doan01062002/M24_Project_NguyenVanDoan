@@ -21,8 +21,8 @@ const GroupCard: React.FC<GroupCardProps> = ({ group }) => {
       <div className="group-card-info">
         <h3>{group.groupName}</h3>
         <p>{group.bio}</p>
-        <p>{group.members.length} thành viên</p>
-        <button className="join-group-button">Tham gia</button>
+        <p>{group.members.length} member</p>
+        <button className="join-group-button">Join</button>
       </div>
     </div>
   );

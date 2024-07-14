@@ -5,6 +5,7 @@ import { renderUser, updateUser } from "../services/account.service";
 import { getCheckUser } from "../util";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../config/firebase";
+import { User } from "../interfaces/page";
 
 interface ProfileModalProps {
   isOpen: boolean;
@@ -21,6 +22,7 @@ const EditProfile: React.FC<ProfileModalProps> = ({ isOpen, onClose }) => {
   const [relationship, setRelationship] = useState("");
 
   const users = useSelector((state: any) => state.users.accountUser);
+  const getUser: User = users.find((item: User) => item.id === getCheckUser.id);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -37,12 +39,12 @@ const EditProfile: React.FC<ProfileModalProps> = ({ isOpen, onClose }) => {
       const storageRef = ref(storage, `images/${file.name}`);
       uploadBytes(storageRef, file).then((snapshot) => {
         getDownloadURL(snapshot.ref).then((url) => {
-          setUrl(url); // Set the URL of the image from Firebase Storage
+          setUrl(url);
         });
       });
       const reader = new FileReader();
       reader.onload = (e) => {
-        setImage(e.target?.result as string); // Set the base64 image for preview
+        setImage(e.target?.result as string);
       };
       reader.readAsDataURL(file);
     }
@@ -54,8 +56,8 @@ const EditProfile: React.FC<ProfileModalProps> = ({ isOpen, onClose }) => {
       email: getCheckUser.email,
       name: getCheckUser.name,
       password: getCheckUser.password,
-      avatar: profileImage, // URL of the profile image from Firebase
-      banner: coverPhoto, // URL of the cover photo from Firebase
+      avatar: profileImage,
+      banner: coverPhoto,
       bio: "",
       city: city,
       work: work,
@@ -63,7 +65,7 @@ const EditProfile: React.FC<ProfileModalProps> = ({ isOpen, onClose }) => {
       hometown: hometown,
       relationship: relationship,
       follows: [],
-      friends: [],
+      friends: [...getUser.friends],
       groups: [],
       created_at: getCheckUser.created_at,
       status: true,

@@ -68,7 +68,15 @@ export default function MainPage() {
     <>
       <nav>
         <div className="container">
-          <h2 className="logo">VNSN</h2>
+          <div className="logo">
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesAdmin%2Flogo.png?alt=media&token=018c46b8-3e94-4fbd-a405-f0283e15a92e"
+              alt="Logo"
+            />
+            <h2>
+              VN<span className="danger">SN</span>
+            </h2>
+          </div>
           <div className="search-bar">
             <i className="uil uil-search" />
             <input
@@ -92,16 +100,16 @@ export default function MainPage() {
           <div className="middle">
             {showFilters && (
               <div className="filter-bar">
-                <h3>Kết quả tìm kiếm</h3>
+                <h3>Search Results</h3>
                 <div className="filters">
                   <button onClick={() => handleFilterChange("posts")}>
-                    Bài viết
+                    Posts
                   </button>
                   <button onClick={() => handleFilterChange("users")}>
-                    Mọi người
+                    Everybody
                   </button>
                   <button onClick={() => handleFilterChange("groups")}>
-                    Nhóm
+                    Groups
                   </button>
                 </div>
               </div>
@@ -117,31 +125,31 @@ export default function MainPage() {
                 </div>
                 <div className="story">
                   <div className="profile-photo">
-                    <img src="./images/profile-9.jpg" />
+                    <img src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-19.jpg?alt=media&token=2b43e031-7839-4df3-9d4e-acb1132d5581" />
                   </div>
                   <p className="name">Lila James</p>
                 </div>
                 <div className="story">
                   <div className="profile-photo">
-                    <img src="./images/profile-10.jpg" />
+                    <img src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-14.jpg?alt=media&token=7a3f5408-fa29-4121-8dfd-eb50b3b1132c" />
                   </div>
                   <p className="name">Winnie Haley</p>
                 </div>
                 <div className="story">
                   <div className="profile-photo">
-                    <img src="./images/profile-11.jpg" />
+                    <img src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-13.jpg?alt=media&token=ed27a7c7-abad-44d7-a008-1fa03306f85d" />
                   </div>
                   <p className="name">Daniel Bale</p>
                 </div>
                 <div className="story">
                   <div className="profile-photo">
-                    <img src="./images/profile-12.jpg" />
+                    <img src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-11.jpg?alt=media&token=55df5258-7239-4f7c-ba8c-bbf9412ab1de" />
                   </div>
                   <p className="name">Jane Doe</p>
                 </div>
                 <div className="story">
                   <div className="profile-photo">
-                    <img src="./images/profile-13.jpg" />
+                    <img src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-18.jpg?alt=media&token=e1ccfc38-fb86-47bc-8a6e-ef0b244828fe" />
                   </div>
                   <p className="name">Tina White</p>
                 </div>

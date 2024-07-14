@@ -150,7 +150,7 @@ export default function Nav_Left() {
               <div className="notifications-popup">
                 <div>
                   <div className="profile-photo">
-                    <img src="./images/profile-2.jpg" />
+                    <img src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-18.jpg?alt=media&token=e1ccfc38-fb86-47bc-8a6e-ef0b244828fe" />
                   </div>
                   <div className="notification-body">
                     <b>Keke Benjamin</b> accepted your friend request
@@ -159,7 +159,7 @@ export default function Nav_Left() {
                 </div>
                 <div>
                   <div className="profile-photo">
-                    <img src="./images/profile-3.jpg" />
+                    <img src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-11.jpg?alt=media&token=55df5258-7239-4f7c-ba8c-bbf9412ab1de" />
                   </div>
                   <div className="notification-body">
                     <b>John Doe</b> commented on your post
@@ -168,7 +168,7 @@ export default function Nav_Left() {
                 </div>
                 <div>
                   <div className="profile-photo">
-                    <img src="./images/profile-4.jpg" />
+                    <img src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-13.jpg?alt=media&token=ed27a7c7-abad-44d7-a008-1fa03306f85d" />
                   </div>
                   <div className="notification-body">
                     <b>Marry Oppong</b> and <b>283 Others</b> liked your post
@@ -177,7 +177,7 @@ export default function Nav_Left() {
                 </div>
                 <div>
                   <div className="profile-photo">
-                    <img src="./images/profile-5.jpg" />
+                    <img src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-14.jpg?alt=media&token=7a3f5408-fa29-4121-8dfd-eb50b3b1132c" />
                   </div>
                   <div className="notification-body">
                     <b>Doris Y. Lartey</b> commented on a post you are tagged in
@@ -186,7 +186,7 @@ export default function Nav_Left() {
                 </div>
                 <div>
                   <div className="profile-photo">
-                    <img src="./images/profile-6.jpg" />
+                    <img src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-10.jpg?alt=media&token=be3c7869-2c76-4731-ad6b-d305cac7f6c1" />
                   </div>
                   <div className="notification-body">
                     <b>Keyley Jenner</b> commented on a post you are tagged in
@@ -195,7 +195,7 @@ export default function Nav_Left() {
                 </div>
                 <div>
                   <div className="profile-photo">
-                    <img src="./images/profile-7.jpg" />
+                    <img src="https://firebasestorage.googleapis.com/v0/b/project-f6c67.appspot.com/o/imagesPages%2FimagesMain_page%2Fprofile-12.jpg?alt=media&token=4f31bf09-4cfa-46a8-91bb-f55d1ff11cdc" />
                   </div>
                   <div className="notification-body">
                     <b>Jane Doe</b> commented on your post
@@ -213,9 +213,7 @@ export default function Nav_Left() {
             }}
             className="menu-item"
           >
-            <i className="fa-solid fa-user-group">
-              <small className="notification-count">1+</small>
-            </i>
+            <i className="fa-solid fa-user-group"></i>
             <h3>Friend</h3>
           </a>
           <a

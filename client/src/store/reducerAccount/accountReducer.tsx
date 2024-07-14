@@ -8,6 +8,8 @@ import {
   acceptFriendRequest,
   deleteFriendRequest,
   changeStatus,
+  unfriend,
+  getFriendRequest,
 } from "../../services/account.service";
 import { User, FriendRequest, Friend } from "../../interfaces/page";
 
@@ -85,6 +87,30 @@ const reducerAccount = createSlice({
         if (index !== -1) {
           state.accountUser[index] = action.payload;
         }
+      })
+      .addCase(unfriend.fulfilled, (state, action) => {
+        const { userId, friendId } = action.payload;
+        const userIndex = state.accountUser.findIndex(
+          (user) => user.id === userId
+        );
+        if (userIndex !== -1) {
+          state.accountUser[userIndex].friends = state.accountUser[
+            userIndex
+          ].friends.filter((friend) => friend.userId !== friendId);
+        }
+
+        const friendIndex = state.accountUser.findIndex(
+          (user) => user.id === friendId
+        );
+        if (friendIndex !== -1) {
+          state.accountUser[friendIndex].friends = state.accountUser[
+            friendIndex
+          ].friends.filter((friend) => friend.userId !== userId);
+        }
+      })
+      // Get Friend requests
+      .addCase(getFriendRequest.fulfilled, (state, action) => {
+        state.friendRequests = action.payload;
       });
   },
 });

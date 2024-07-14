@@ -39,6 +39,7 @@ export default function UploadPost() {
         content: name,
         image: urls, // Thêm urls vào một mảng images trong đối tượng
         reaction: [],
+        comments: [],
         created_at:
           new Date().toLocaleDateString() +
           " " +

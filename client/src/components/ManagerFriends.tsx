@@ -3,12 +3,9 @@ import "../assets/ManagerFriends.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Friend, User } from "../interfaces/page";
 import { getCheckUser } from "../util";
-import { renderUser } from "../services/account.service";
+import { renderUser, unfriend } from "../services/account.service";
 
 export default function ManagerFriends() {
-  /**
-   * handle Show
-   */
   const [showActions, setShowActions] = useState<number | null>(null);
   const actionMenuRef = useRef<HTMLDivElement>(null);
 
@@ -32,14 +29,9 @@ export default function ManagerFriends() {
     };
   }, []);
 
-  /**
-   * Get User
-   */
   const [loading, setLoading] = useState<boolean>(true);
 
-  const users = useSelector((state: any) => {
-    return state.users.accountUser;
-  });
+  const users = useSelector((state: any) => state.users.accountUser);
 
   const getUser: User = users.find((item: User) => item.id === getCheckUser.id);
 
@@ -56,6 +48,11 @@ export default function ManagerFriends() {
   if (!getUser) {
     return <div>User not found</div>;
   }
+
+  const handleUnfriend = (friendId: number) => {
+    dispatch(unfriend({ userId: getUser.id, friendId }));
+  };
+
   return (
     <div className="container-friends">
       <header>
@@ -64,7 +61,7 @@ export default function ManagerFriends() {
       </header>
       <div className="tabs">
         <span className="active">All Friend</span>
-        <span>Fllowing</span>
+        <span>Following</span>
       </div>
       <div className="friends-list">
         {getUser.friends.map((friend: Friend, index: number) => (
@@ -84,7 +81,9 @@ export default function ManagerFriends() {
               {showActions === index && (
                 <div className="action-menu" ref={actionMenuRef}>
                   <button onClick={() => alert("Unfollow")}>Unfollow</button>
-                  <button onClick={() => alert("Unfriend")}>UnFriend</button>
+                  <button onClick={() => handleUnfriend(friend.userId)}>
+                    Unfriend
+                  </button>
                 </div>
               )}
             </div>

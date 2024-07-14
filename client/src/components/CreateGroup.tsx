@@ -56,10 +56,10 @@ export default function CreateGroup() {
   return (
     <>
       <div className="container-create-group">
-        <h1>Tạo Nhóm Mới</h1>
+        <h1>Create new group</h1>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="group-name">Tên Nhóm</label>
+            <label htmlFor="group-name">Group name</label>
             <input
               type="text"
               id="group-name"
@@ -70,7 +70,7 @@ export default function CreateGroup() {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="group-description">Mô Tả Nhóm</label>
+            <label htmlFor="group-description">Group description</label>
             <textarea
               id="group-description"
               name="group-description"
@@ -80,7 +80,7 @@ export default function CreateGroup() {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="group-privacy">Chế Độ Riêng Tư</label>
+            <label htmlFor="group-privacy">Private mode</label>
             <select
               id="group-privacy"
               name="group-privacy"
@@ -88,17 +88,22 @@ export default function CreateGroup() {
               onChange={(e) => setGroupPrivacy(e.target.value)}
               required
             >
-              <option value="public">Công Khai</option>
-              <option value="private">Riêng Tư</option>
+              <option value="public">Public</option>
+              <option value="private">Private</option>
             </select>
           </div>
           <div className="form-group">
-            <label htmlFor="group-image">Ảnh Nhóm</label>
-            <input type="file" id="group-image" onChange={handleImageChange} />
+            <label htmlFor="group-image">Group photo</label>
+            <input
+              placeholder="Choose an image"
+              type="file"
+              id="group-image"
+              onChange={handleImageChange}
+            />
             {imagePreview && <img src={imagePreview} alt="Preview" />}
           </div>
           <div className="form-group">
-            <button type="submit">Tạo Nhóm</button>
+            <button type="submit">Create a group</button>
           </div>
         </form>
       </div>

@@ -2,9 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 import { Post } from "../../interfaces/page";
 import {
   changeStatus,
+  commentPost,
   deletePost,
   postFeed,
+  reactionPost,
+  reactionPostCancel,
   renderPost,
+  replyComments,
 } from "../../services/posts.service";
 
 const state: Post[] = [];
@@ -17,7 +21,6 @@ const reducerPost = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(renderPost.pending, (state, action) => {})
       // render post feed
       .addCase(renderPost.fulfilled, (state, action) => {
         state.post = action.payload;
@@ -41,7 +44,55 @@ const reducerPost = createSlice({
           state.post[index] = action.payload;
         }
       })
-      .addCase(renderPost.rejected, () => {});
+      // Comment Post
+      .addCase(commentPost.fulfilled, (state, action) => {
+        const { postId, comment } = action.payload;
+        const postIndex = state.post.findIndex(
+          (post: Post) => post.id === postId
+        );
+        if (postIndex !== -1) {
+          state.post[postIndex].comments.push(comment);
+        }
+      })
+      // Reaction Post
+      .addCase(reactionPost.fulfilled, (state, action) => {
+        const { postId, reaction } = action.payload;
+        const postIndex = state.post.findIndex(
+          (post: Post) => post.id === postId
+        );
+        if (postIndex !== -1) {
+          state.post[postIndex].reaction.push(reaction);
+        }
+      })
+      // Cancel Reaction Post
+      .addCase(reactionPostCancel.fulfilled, (state, action) => {
+        const { postId, reactionId } = action.payload;
+
+        const postIndex = state.post.findIndex((post) => post.id === postId);
+
+        if (postIndex !== -1) {
+          state.post[postIndex].reaction = state.post[
+            postIndex
+          ].reaction.filter((reaction) => reaction.user_id !== reactionId);
+        }
+      })
+      // reply comment
+      .addCase(replyComments.fulfilled, (state, action) => {
+        const { postId, commentId, replyComment } = action.payload;
+        const postIndex = state.post.findIndex(
+          (post: Post) => post.id === postId
+        );
+        if (postIndex !== -1) {
+          const commentIndex = state.post[postIndex].comments.findIndex(
+            (comment: any) => comment.id === commentId
+          );
+          if (commentIndex !== -1) {
+            state.post[postIndex].comments[commentIndex].reply_comment.push(
+              replyComment
+            );
+          }
+        }
+      });
   },
 });
 

@@ -37,7 +37,7 @@ export default function Nav_Right() {
         <div className="profile">
           <div className="info">
             <p>
-              Hey, <b>Bruno</b>
+              Hey, <b>ADIM</b>
             </p>
             <small className="text-muted">Admin</small>
           </div>

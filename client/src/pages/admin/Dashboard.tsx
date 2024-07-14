@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../assets/asests_Admin/dashboard.css";
 import Nav_Main from "../../components/component_admin/Nav_Main";
 import Nav_Right from "../../components/component_admin/Nav_Right";
 import { useNavigate } from "react-router-dom";
-import { setCheckAdmin } from "../../util";
+import { getCheckAdmin, setCheckAdmin } from "../../util";
 import Manager_User from "../../components/component_admin/Manager_User";
 import Manager_Group from "../../components/component_admin/Manager_Group";
 import ManagerPost from "../../components/component_admin/ManagerPost";
+import { useDispatch, useSelector } from "react-redux";
+import { getAdmin } from "../../services/accountAdmin.service";
+import { AccountAdmin } from "../../interfaces/page";
 
 const Dashboard: React.FC = () => {
   const [showMain, setShowMain] = useState<string>("dashboard");
@@ -20,7 +23,14 @@ const Dashboard: React.FC = () => {
   };
 
   // Logout
+
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(getAdmin());
+  }, []);
 
   const handleLogout = () => {
     setCheckAdmin();
@@ -42,7 +52,7 @@ const Dashboard: React.FC = () => {
               alt="Logo"
             />
             <h2>
-              EGA<span className="danger">TOR</span>
+              VN<span className="danger">SN</span>
             </h2>
           </div>
           <div

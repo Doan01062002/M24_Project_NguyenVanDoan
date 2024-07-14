@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { renderUser, sendFriendRequest } from "../services/account.service";
-import { User } from "../interfaces/page";
+import {
+  getFriendRequest,
+  renderUser,
+  sendFriendRequest,
+} from "../services/account.service";
+import { FriendRequest, User } from "../interfaces/page";
 import "../assets/UserCardSearch.css";
 import { getCheckUser } from "../util";
 
@@ -20,6 +24,14 @@ const UserCard: React.FC<UserCardProps> = ({ user }) => {
     alert("đã gửi lời mời kết bạn");
   };
 
+  const friendRequests = useSelector((state: any) => {
+    return state.users.friendRequests;
+  });
+
+  useEffect(() => {
+    dispatch(getFriendRequest());
+  }, []);
+
   return (
     <div className="user-card">
       <div className="user-card-avatar">
@@ -28,9 +40,17 @@ const UserCard: React.FC<UserCardProps> = ({ user }) => {
       <div className="user-card-info">
         <h3>{user.name}</h3>
         <p>{user.bio}</p>
-        <button className="add-friend-button" onClick={handleAddFriend}>
-          Thêm bạn bè
-        </button>
+        {friendRequests.find(
+          (item: FriendRequest) => item.from_user_id === user.id
+        ).status === "pending" ? (
+          <button className="add-friend-button" onClick={handleAddFriend}>
+            Add friend
+          </button>
+        ) : (
+          <button className="add-friend-button-success">
+            sent a friend request
+          </button>
+        )}
       </div>
     </div>
   );

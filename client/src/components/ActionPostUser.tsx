@@ -70,31 +70,31 @@ export default function ActionPostUser() {
           <h2>Posts</h2>
           <div className="header-left">
             <button>
-              <span className="material-symbols-outlined">tune</span> Bộ lọc
+              <span className="material-symbols-outlined">tune</span> Filter
             </button>
             <button onClick={togglePostManager}>
-              <span className="material-symbols-outlined">settings</span> Quản
-              lý bài viết
+              <span className="material-symbols-outlined">settings</span>{" "}
+              Article management
             </button>
           </div>
         </div>
         <div className="tab-menu">
-          <span className="active">Xem theo danh sách</span>
-          <span>Chế độ xem lưới</span>
+          <span className="active">View by list</span>
+          <span>grid view</span>
         </div>
       </div>
       {showPostManager && (
         <div className="post-manager-modal">
           <div className="modal-content">
             <div className="modal-header">
-              <h3>Quản lý bài viết</h3>
+              <h3>Article management</h3>
               <button className="close-button" onClick={togglePostManager}>
                 &times;
               </button>
             </div>
             <div className="modal-body">
               <button className="select-all" onClick={handleSelectAll}>
-                Chọn tất cả
+                select all
               </button>
               <div className="post-list">
                 {postItems.map((item) => (
@@ -118,9 +118,9 @@ export default function ActionPostUser() {
             </div>
             <div className="modal-footer">
               <button className="delete-button" onClick={handleDeleteSelected}>
-                Xóa
+                Delete
               </button>
-              <button className="next-button">Tiếp</button>
+              <button className="next-button">Next</button>
             </div>
           </div>
         </div>

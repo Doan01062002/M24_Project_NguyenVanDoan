@@ -41,6 +41,15 @@
     border-radius: 5px;
     cursor: pointer;
   }
+
+  .add-friend-button-success{
+    background-color: #d4d6d8;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
   
   .add-friend-button:hover {
     background-color: #0056b3;
